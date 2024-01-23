@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text } from 'react-native';
-import { Wrapper } from 'reactnatively';
+import { Heading, Wrapper } from 'reactnatively';
 
 export default function App() {
   return (
@@ -13,6 +13,7 @@ export default function App() {
         voluptatum! Ullam vitae laborum cumque eius harum debitis. Maiores ad
         maxime ab aliquam deserunt explicabo.
       </Text>
+      <Heading variant="h1">Well done</Heading>
     </Wrapper>
   );
 }
