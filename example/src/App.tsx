@@ -1,31 +1,18 @@
 import * as React from 'react';
-
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'reactnatively';
+import { Text } from 'react-native';
+import { Wrapper } from 'reactnatively';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <Wrapper>
+      <Text>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod nostrum
+        deserunt fuga voluptates quisquam, maxime voluptatibus tenetur
+        doloremque iusto porro laborum harum laboriosam quis perspiciatis cumque
+        incidunt quam itaque molestiae vero repellendus quia placeat libero
+        voluptatum! Ullam vitae laborum cumque eius harum debitis. Maiores ad
+        maxime ab aliquam deserunt explicabo.
+      </Text>
+    </Wrapper>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
