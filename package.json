@@ -1,6 +1,6 @@
 {
   "name": "reactnatively",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "reactnatively is a lightweight and minimal UI library designed for simplicity and flexibility. It provides essential components and styles to kickstart your React Native projects without unnecessary bloat.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
