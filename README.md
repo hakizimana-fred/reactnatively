@@ -11,11 +11,14 @@ npm install reactnatively
 ## Usage
 
 ```js
-import { multiply } from 'reactnatively';
+import { Wrapper, Text, Heading } from 'reactnatively';
 
 // ...
 
-const result = await multiply(3, 7);
+<Wrapper>
+ <Text>Hello</Text>
+ <Heading variant="h2">Welcome</Heading>
+</Wrapper>
 ```
 
 ## Contributing
