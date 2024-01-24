@@ -13,7 +13,9 @@ export default function App() {
         voluptatum! Ullam vitae laborum cumque eius harum debitis. Maiores ad
         maxime ab aliquam deserunt explicabo.
       </Text>
-      <Heading variant="h1">Well done</Heading>
+      <Heading variant="h1" align="left">
+        Well done
+      </Heading>
     </Wrapper>
   );
 }
