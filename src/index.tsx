@@ -1,4 +1,5 @@
 import React from 'react';
+import type { ImageSourcePropType } from 'react-native';
 import { TouchableOpacity, type TextStyle, Image } from 'react-native';
 import { StyleSheet, Text } from 'react-native';
 import { SafeAreaView, View } from 'react-native';
@@ -32,6 +33,11 @@ interface HeadingProps extends IChildren, TextAlignProps {
   variant?: keyof typeof fontSizes;
   size?: number;
   color?: string;
+}
+
+interface AvatarProps {
+  size: 34 | 42 | 50 | 58 | 66;
+  src: string | ImageSourcePropType;
 }
 
 interface TextAlignProps {
@@ -131,6 +137,20 @@ export const CardImage: React.FC = () => {
   );
 };
 
+export const Avatar: React.FC<AvatarProps> = ({ size, src }) => {
+  const source = typeof src === 'string' ? { uri: src } : src;
+  return (
+    <Image
+      style={{
+        width: size,
+        height: size,
+        borderRadius: 9999,
+      }}
+      source={source}
+    />
+  );
+};
+
 export const CardTitle: React.FC<CardTypographyProps> = ({
   text,
   align = 'left',
@@ -138,7 +158,7 @@ export const CardTitle: React.FC<CardTypographyProps> = ({
   return <Text style={{ textAlign: align, ...styles.cardTitle }}>{text}</Text>;
 };
 
-export const CardContent: React.FC<{ children: any }> = ({ children }) => {
+export const CardContent: React.FC<{ children: unknown }> = ({ children }) => {
   return <View style={styles.cardContent}>{children}</View>;
 };
 
@@ -149,6 +169,10 @@ export const CardDescription: React.FC<CardTypographyProps> = ({
   return (
     <Text style={{ textAlign: align, ...styles.cardDescription }}>{text}</Text>
   );
+};
+
+export const CardFooter: React.FC<{ children: unknown }> = ({ children }) => {
+  return <View style={styles.cardFooter}>{children}</View>;
 };
 
 const styles = StyleSheet.create({
@@ -213,5 +237,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 3,
     lineHeight: 22,
     fontSize: 16,
+    marginBottom: 3,
+  },
+  cardFooter: {
+    paddingTop: 10,
+    borderTopWidth: 1,
+    borderColor: '#e9e9e9',
   },
 });
