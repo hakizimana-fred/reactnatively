@@ -1,6 +1,15 @@
 import * as React from 'react';
 import { Text } from 'react-native';
-import { Button, Heading, Wrapper } from 'reactnatively';
+import {
+  Card,
+  Button,
+  Heading,
+  Wrapper,
+  CardImage,
+  CardTitle,
+  CardContent,
+  CardDescription,
+} from 'reactnatively';
 
 export default function App() {
   return (
@@ -17,13 +26,22 @@ export default function App() {
         <Heading variant="h1" align="left">
           Well done
         </Heading>
-        <Button size="lg" onPress={() => console.log('sup with you')}>
+        <Button
+          size="lg"
+          bg="brown"
+          onPress={() => console.log('sup with you')}
+        >
           Hi
         </Button>
+        <Card>
+          <CardImage />
+
+          <CardContent>
+            <CardTitle align="right" text="Hi there" />
+            <CardDescription text="hello there" align="right" />
+          </CardContent>
+        </Card>
       </Wrapper>
-      {/* <View style={{ width: 100 }}>
-        <Button size="lg">Hi</Button>
-      </View> */}
     </>
   );
 }
