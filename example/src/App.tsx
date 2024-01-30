@@ -7,6 +7,8 @@ import {
   Wrapper,
   CardImage,
   CardTitle,
+  CardContent,
+  CardDescription,
 } from 'reactnatively';
 
 export default function App() {
@@ -33,7 +35,11 @@ export default function App() {
         </Button>
         <Card>
           <CardImage />
-          <CardTitle align="right" text="Hi there" />
+
+          <CardContent>
+            <CardTitle align="right" text="Hi there" />
+            <CardDescription text="hello there" align="right" />
+          </CardContent>
         </Card>
       </Wrapper>
     </>

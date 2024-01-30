@@ -28,11 +28,19 @@ export const paragraph: TextStyle = {
   lineHeight: 20,
 };
 
-interface HeadingProps extends IChildren {
+interface HeadingProps extends IChildren, TextAlignProps {
   variant?: keyof typeof fontSizes;
   size?: number;
   color?: string;
+}
+
+interface TextAlignProps {
   align?: 'left' | 'right' | 'center';
+}
+
+interface CardTypographyProps {
+  text: string;
+  align?: TextAlignProps['align'];
 }
 
 interface ButtonProps extends IChildren {
@@ -123,14 +131,23 @@ export const CardImage: React.FC = () => {
   );
 };
 
-export const CardTitle: React.FC<{
-  text: string;
-  align?: 'center' | 'right' | 'left';
-}> = ({ text, align = 'left' }) => {
+export const CardTitle: React.FC<CardTypographyProps> = ({
+  text,
+  align = 'left',
+}) => {
+  return <Text style={{ textAlign: align, ...styles.cardTitle }}>{text}</Text>;
+};
+
+export const CardContent: React.FC<{ children: any }> = ({ children }) => {
+  return <View style={styles.cardContent}>{children}</View>;
+};
+
+export const CardDescription: React.FC<CardTypographyProps> = ({
+  align = 'left',
+  text,
+}) => {
   return (
-    <Text style={{ textAlign: align ? align : align, ...styles.cardTitle }}>
-      {text}
-    </Text>
+    <Text style={{ textAlign: align, ...styles.cardDescription }}>{text}</Text>
   );
 };
 
@@ -184,5 +201,17 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 20,
+    fontWeight: '600',
+    color: '#000',
+    marginBottom: 10,
+  },
+  cardContent: {
+    paddingVertical: 18,
+    paddingHorizontal: 13,
+  },
+  cardDescription: {
+    paddingHorizontal: 3,
+    lineHeight: 22,
+    fontSize: 16,
   },
 });
