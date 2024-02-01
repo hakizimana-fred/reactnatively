@@ -12,6 +12,7 @@ import {
   CardFooter,
   Avatar,
   TextAvatar,
+  TextTabs,
 } from 'reactnatively';
 
 export default function App() {
@@ -48,6 +49,7 @@ export default function App() {
           </CardContent>
         </Card>
         <TextAvatar size={66} bg="red" text="HK" />
+        <TextTabs />
       </Wrapper>
     </>
   );
