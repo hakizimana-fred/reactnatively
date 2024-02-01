@@ -49,7 +49,9 @@ export default function App() {
           </CardContent>
         </Card>
         <TextAvatar size={66} bg="red" text="HK" />
-        <TextTabs />
+        <TextTabs
+          tabs={[{ name: 'profile' }, { name: 'post' }, { name: 'you' }]}
+        />
       </Wrapper>
     </>
   );
