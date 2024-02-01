@@ -1,57 +1,63 @@
 import * as React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import {
   Card,
-  Button,
   Heading,
   Wrapper,
-  CardImage,
   CardTitle,
   CardContent,
   CardDescription,
-  CardFooter,
   Avatar,
-  TextAvatar,
-  TextTabs,
 } from 'reactnatively';
 
 export default function App() {
   return (
     <>
       <Wrapper>
-        <Text>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod nostrum
-          deserunt fuga voluptates quisquam, maxime voluptatibus tenetur
-          doloremque iusto porro laborum harum laboriosam quis perspiciatis
-        </Text>
-        <Heading variant="h1" align="left">
-          Well done
-        </Heading>
-
-        <Avatar size={66} src={require('../assets/icon.png')} />
-
-        <Button
-          size="lg"
-          bg="brown"
-          onPress={() => console.log('sup with you')}
+        <View
+          style={{
+            marginTop: 10,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            paddingVertical: 13,
+          }}
         >
-          Hi
-        </Button>
-        <Card>
-          <CardImage />
-
-          <CardContent>
-            <CardTitle align="right" text="Hi there" />
-            <CardDescription text="hello there" align="right" />
-            <CardFooter>
-              <Text>Hello</Text>
-            </CardFooter>
-          </CardContent>
-        </Card>
-        <TextAvatar size={66} bg="red" text="HK" />
-        <TextTabs
-          tabs={[{ name: 'profile' }, { name: 'post' }, { name: 'you' }]}
-        />
+          <Avatar size={42} src={require('../assets/icon.png')} />
+          <Text>welcome Fred!</Text>
+        </View>
+        <View style={{ paddingVertical: 20 }}>
+          <Heading align="center" variant="h3">
+            Hi! welcome to {new Date().getFullYear()}
+          </Heading>
+        </View>
+        {/* <TextTabs
+          tabs={[{ name: 'Post' }, { name: 'Settings' }, { name: 'Upload' }]}
+        /> */}
+        <View
+          style={{
+            width: 500,
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          {[...Array(5)].map(() => (
+            <View style={{ flex: 1, flexWrap: 'wrap' }}>
+              <Card>
+                <CardTitle text="Looking for cheap car?" align="center" />
+                <CardContent>
+                  <CardDescription
+                    text="
+                    hello there
+            "
+                  />
+                </CardContent>
+              </Card>
+            </View>
+          ))}
+        </View>
       </Wrapper>
     </>
   );
