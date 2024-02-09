@@ -35,7 +35,8 @@ export const styles = StyleSheet.create({
     borderColor: '#efefef',
   },
   btnLgText: {
-    fontSize: 22,
+    fontWeight: '600',
+    color: '#fff',
   },
 
   btn: {

@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import type { ButtonProps } from '../../../lib/types';
 import { colors, styles } from '../../styles/global.styles';
+import { btnFontAdjuster } from '../../../lib/font.adjuster';
 
 export const Button: React.FC<ButtonProps> = ({
   children,
@@ -19,7 +20,14 @@ export const Button: React.FC<ButtonProps> = ({
             backgroundColor: bg ? bg : styles.btnLarge.backgroundColor,
           }}
         >
-          <Text style={styles.btnLgText}>{children}</Text>
+          <Text
+            style={{
+              ...styles.btnLgText,
+              fontSize: btnFontAdjuster(size),
+            }}
+          >
+            {children}
+          </Text>
         </View>
       </TouchableOpacity>
     );
