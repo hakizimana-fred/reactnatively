@@ -1,14 +1,6 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
-import {
-  Card,
-  Heading,
-  Wrapper,
-  CardTitle,
-  CardContent,
-  CardDescription,
-  Avatar,
-} from 'reactnatively';
+import { Heading, Wrapper, Avatar, Button } from 'reactnatively';
 
 export default function App() {
   return (
@@ -34,30 +26,7 @@ export default function App() {
         {/* <TextTabs
           tabs={[{ name: 'Post' }, { name: 'Settings' }, { name: 'Upload' }]}
         /> */}
-        <View
-          style={{
-            width: 500,
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {[...Array(5)].map(() => (
-            <View style={{ flex: 1, flexWrap: 'wrap' }}>
-              <Card>
-                <CardTitle text="Looking for cheap car?" align="center" />
-                <CardContent>
-                  <CardDescription
-                    text="
-                    hello there
-            "
-                  />
-                </CardContent>
-              </Card>
-            </View>
-          ))}
-        </View>
+        <Button size="lg">hi</Button>
       </Wrapper>
     </>
   );
