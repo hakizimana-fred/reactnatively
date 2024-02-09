@@ -26,7 +26,27 @@ export const styles = StyleSheet.create({
   heading: {
     fontWeight: 'bold',
   },
-
+  btnXS: {
+    paddingVertical: 6,
+    paddingHorizontal: 14,
+    borderWidth: 1,
+    backgroundColor: colors.primary,
+    borderColor: '#efefef',
+  },
+  btnSM: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderWidth: 1,
+    backgroundColor: colors.primary,
+    borderColor: '#efefef',
+  },
+  btnMD: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderWidth: 1,
+    backgroundColor: colors.primary,
+    borderColor: '#efefef',
+  },
   btnLarge: {
     paddingVertical: 10,
     paddingHorizontal: 20,
@@ -34,7 +54,16 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     borderColor: '#efefef',
   },
-  btnLgText: {
+
+  btnXL: {
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    borderWidth: 1,
+    backgroundColor: colors.primary,
+    borderColor: '#efefef',
+  },
+
+  btnText: {
     fontWeight: '600',
     color: '#fff',
   },

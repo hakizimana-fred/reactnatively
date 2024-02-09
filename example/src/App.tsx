@@ -26,7 +26,9 @@ export default function App() {
         {/* <TextTabs
           tabs={[{ name: 'Post' }, { name: 'Settings' }, { name: 'Upload' }]}
         /> */}
-        <Button size="lg">hi</Button>
+        <Button size="xs" bg="violet" color="yellow">
+          hi
+        </Button>
       </Wrapper>
     </>
   );
