@@ -10,15 +10,53 @@ npm install reactnatively
 
 ## Usage
 
+## Components
+
+Avatars
+Avatars can be used to display user profile pictures or text representations.
+
 ```js
-import { Wrapper, Text, Heading } from 'reactnatively';
+import { Avatar, TextAvatar } from 'reactnatively';
 
 // ...
 
-<Wrapper>
- <Text>Hello</Text>
- <Heading variant="h2">Welcome</Heading>
-</Wrapper>
+const AvatarComponent = () => {
+  return (
+    <Avatar size={42} src="https://example.com/avatar.jpg" />
+    <TextAvatar size={50} text="HF" bg="blue" />
+  );
+```
+
+Heading
+Heading components render text headings with customizable sizes.
+
+```js
+import { Heading } from 'reactnatively';
+
+// ...
+
+const HeaderComponent = () => {
+  return (
+     <Heading variant="h1">Main Heading</Heading>
+    <Heading variant="h3">Subheading</Heading>
+  );
+```
+
+Button
+Buttons provide interactive elements for triggering actions.
+
+```js
+import { Button } from 'reactnatively';
+
+// ...
+
+const ButtonExample = () => {
+  return (
+    <Button size="lg" onPress={() => console.log('Button clicked')}>
+      Click Me
+    </Button>
+  );
+};
 ```
 
 ## Contributing
