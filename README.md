@@ -12,7 +12,8 @@ npm install reactnatively
 
 ## Components
 
-Avatars
+### Avatars
+
 Avatars can be used to display user profile pictures or text representations.
 
 ```js
@@ -27,7 +28,19 @@ const AvatarComponent = () => {
   );
 ```
 
-Heading
+## Avatar types
+
+| Prop       | Type     | Description                                       |
+|------------|----------|---------------------------------------------------|
+| size       | number   | Size of the avatar                                |
+| src        | string   | Source of the avatar image                        |
+| text       | string   | Text to display if no image source is provided    |
+| bg         | string   | Optional background color for the avatar           |
+
+only use text in TextAvatar.
+
+### Heading
+
 Heading components render text headings with customizable sizes.
 
 ```js
@@ -42,7 +55,12 @@ const HeaderComponent = () => {
   );
 ```
 
-Button
+| Prop     | Type    | Description                                     |
+|----------|---------|-------------------------------------------------|
+| variant  | string  | Variant of the heading (e.g., "h1", "h2", etc.)|
+
+### Button
+
 Buttons provide interactive elements for triggering actions.
 
 ```js
@@ -58,6 +76,11 @@ const ButtonExample = () => {
   );
 };
 ```
+
+| Prop     | Type      | Description                                        |
+|----------|-----------|----------------------------------------------------|
+| size     | string    | Size of the button (e.g., "lg", "md", "sm")       |
+| onPress  | function  | Callback function to execute on button press      |
 
 ## Contributing
 
