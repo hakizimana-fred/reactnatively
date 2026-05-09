@@ -24,6 +24,8 @@
   "dependencies": {
     "@reactnatively/animations": "workspace:*",
     "@reactnatively/glass": "workspace:*",
+    "@reactnatively/hooks": "workspace:*",
+    "@reactnatively/primitives": "workspace:*",
     "@reactnatively/theme": "workspace:*",
     "@reactnatively/utils": "workspace:*"
   },

@@ -1,0 +1,44 @@
+{
+  "name": "@reactnatively/primitives",
+  "version": "0.1.0",
+  "description": "Base rendering primitives for the Reactnatively framework",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "sideEffects": false,
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@reactnatively/animations": "workspace:*",
+    "@reactnatively/glass": "workspace:*",
+    "@reactnatively/theme": "workspace:*",
+    "@reactnatively/utils": "workspace:*"
+  },
+  "peerDependencies": {
+    "expo-blur": ">=13.0.0",
+    "react": ">=18.0.0",
+    "react-native": ">=0.73.0",
+    "react-native-gesture-handler": ">=2.14.0",
+    "react-native-linear-gradient": ">=2.8.0",
+    "react-native-reanimated": ">=3.6.0"
+  },
+  "devDependencies": {
+    "@reactnatively/tsconfig": "workspace:*",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.3"
+  },
+  "license": "MIT",
+  "publishConfig": { "access": "public" }
+}

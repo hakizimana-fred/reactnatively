@@ -1,0 +1,44 @@
+{
+  "name": "@reactnatively/hooks",
+  "version": "0.1.0",
+  "description": "Shared UI hooks for the Reactnatively framework",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "sideEffects": false,
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@reactnatively/theme": "workspace:*",
+    "@reactnatively/utils": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-native": ">=0.73.0",
+    "react-native-reanimated": ">=3.6.0",
+    "react-native-safe-area-context": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-native-reanimated": { "optional": true },
+    "react-native-safe-area-context": { "optional": true }
+  },
+  "devDependencies": {
+    "@reactnatively/tsconfig": "workspace:*",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.3"
+  },
+  "license": "MIT",
+  "publishConfig": { "access": "public" }
+}

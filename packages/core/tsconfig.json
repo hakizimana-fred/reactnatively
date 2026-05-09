@@ -2,7 +2,9 @@
   "extends": "@reactnatively/tsconfig/react-native",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules"]
