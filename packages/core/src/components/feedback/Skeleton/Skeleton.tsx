@@ -8,9 +8,25 @@ import Animated, {
   interpolate,
   Extrapolation,
 } from 'react-native-reanimated';
-import LinearGradient from 'react-native-linear-gradient';
 import { useIsDark } from '@reactnatively/theme';
 import { useReducedMotion } from '@reactnatively/animations';
+
+let LinearGradientImpl:
+  | typeof import('react-native-linear-gradient').default
+  | null
+  | undefined;
+
+function loadLinearGradient(): typeof import('react-native-linear-gradient').default | null {
+  if (LinearGradientImpl !== undefined) return LinearGradientImpl;
+  try {
+    // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
+    const gradientModule = require('react-native-linear-gradient');
+    LinearGradientImpl = gradientModule?.default ?? gradientModule;
+  } catch {
+    LinearGradientImpl = null;
+  }
+  return LinearGradientImpl;
+}
 
 export type SkeletonVariant = 'text' | 'circle' | 'rect' | 'card';
 
@@ -91,12 +107,21 @@ export const Skeleton = React.memo<SkeletonProps>(
       >
         {!isReduced && (
           <Animated.View style={[StyleSheet.absoluteFill, animatedStyle]}>
-            <LinearGradient
-              colors={shimmerColors}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              style={{ flex: 1, width: 300 }}
-            />
+            {loadLinearGradient() ? (
+              <LinearGradientImpl
+                colors={shimmerColors}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+                style={{ flex: 1, width: 300 }}
+              />
+            ) : (
+              <View
+                style={[
+                  StyleSheet.absoluteFill,
+                  { backgroundColor: shimmerLight, width: 300 },
+                ]}
+              />
+            )}
           </Animated.View>
         )}
       </View>

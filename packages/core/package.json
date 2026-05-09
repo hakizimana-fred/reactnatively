@@ -37,6 +37,11 @@
     "react-native-linear-gradient": ">=2.8.0",
     "react-native-reanimated": ">=3.6.0"
   },
+  "peerDependenciesMeta": {
+    "expo-blur": { "optional": true },
+    "react-native-linear-gradient": { "optional": true },
+    "react-native-reanimated": { "optional": false }
+  },
   "devDependencies": {
     "@reactnatively/tsconfig": "workspace:*",
     "@testing-library/react-native": "^12.5.1",

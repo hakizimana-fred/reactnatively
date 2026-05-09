@@ -24,6 +24,15 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
+        name="showcase"
+        options={{
+          title: 'Showcase',
+          tabBarIcon: ({ color }) => (
+            <TabIcon symbol="✨" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="index"
         options={{
           title: 'Glass',

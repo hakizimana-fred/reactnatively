@@ -5,12 +5,41 @@ import {
   Platform,
   type ViewStyle,
 } from 'react-native';
-import { BlurView } from 'expo-blur';
-import LinearGradient from 'react-native-linear-gradient';
 import { useTheme } from '@reactnatively/theme';
 import { resolveGlass } from '../../engine/GlassEngine';
 import { IS_NO_GLASS, ANDROID_BLUR_METHOD } from '../../engine/CapabilityDetector';
 import type { GlassViewProps } from './GlassView.types';
+
+let BlurViewImpl: typeof import('expo-blur').BlurView | null | undefined;
+let LinearGradientImpl:
+  | typeof import('react-native-linear-gradient').default
+  | null
+  | undefined;
+
+function loadBlurView(): typeof import('expo-blur').BlurView | null {
+  if (BlurViewImpl !== undefined) return BlurViewImpl;
+  try {
+    // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
+    BlurViewImpl = require('expo-blur').BlurView;
+  } catch {
+    BlurViewImpl = null;
+  }
+  return BlurViewImpl;
+}
+
+function loadLinearGradient():
+  | typeof import('react-native-linear-gradient').default
+  | null {
+  if (LinearGradientImpl !== undefined) return LinearGradientImpl;
+  try {
+    // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
+    const gradientModule = require('react-native-linear-gradient');
+    LinearGradientImpl = gradientModule?.default ?? gradientModule;
+  } catch {
+    LinearGradientImpl = null;
+  }
+  return LinearGradientImpl;
+}
 
 /**
  * GlassView — the foundational rendering primitive of the Liquid Glass system.
@@ -76,6 +105,9 @@ export const GlassView = React.memo<GlassViewProps>(
       };
     }, [glow]);
 
+    const BlurViewComponent = loadBlurView();
+    const LinearGradientComponent = loadLinearGradient();
+
     // Fallback: no-blur devices — solid semi-transparent + gradient only
     if (IS_NO_GLASS) {
       return (
@@ -93,12 +125,24 @@ export const GlassView = React.memo<GlassViewProps>(
                 { backgroundColor: resolved.tintColor },
               ]}
             />
-            <LinearGradient
-              colors={[resolved.highlightColor, 'transparent']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 0, y: 1 }}
-              style={[styles.highlightGradient]}
-            />
+            {resolved.highlightColor !== 'transparent' && (
+              LinearGradientComponent ? (
+                <LinearGradientComponent
+                  colors={[resolved.highlightColor, 'transparent']}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 0, y: 1 }}
+                  style={styles.highlightGradient}
+                />
+              ) : (
+                <View
+                  pointerEvents="none"
+                  style={[
+                    styles.highlightGradient,
+                    { backgroundColor: resolved.highlightColor, opacity: 0.2 },
+                  ]}
+                />
+              )
+            )}
             {border && (
               <View
                 pointerEvents="none"
@@ -124,14 +168,21 @@ export const GlassView = React.memo<GlassViewProps>(
       >
         <View style={[styles.clipShell, { borderRadius }]}>
           {/* Layer 1: Native blur */}
-          <BlurView
-            intensity={resolved.blurAmount}
-            tint={resolved.blurTint}
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore — experimentalBlurMethod is Android-only, conditionally applied
-            experimentalBlurMethod={ANDROID_BLUR_METHOD}
-            style={StyleSheet.absoluteFill}
-          />
+          {BlurViewComponent ? (
+            <BlurViewComponent
+              intensity={resolved.blurAmount}
+              tint={resolved.blurTint}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore — experimentalBlurMethod is Android-only, conditionally applied
+              experimentalBlurMethod={ANDROID_BLUR_METHOD}
+              style={StyleSheet.absoluteFill}
+            />
+          ) : (
+            <View
+              pointerEvents="none"
+              style={[StyleSheet.absoluteFill, { backgroundColor: resolved.tintColor }]}
+            />
+          )}
 
           {/* Layer 2: Tint overlay */}
           <View
@@ -141,13 +192,23 @@ export const GlassView = React.memo<GlassViewProps>(
 
           {/* Layer 3: Top-edge highlight — the "liquid glass" refraction shimmer */}
           {resolved.highlightColor !== 'transparent' && (
-            <LinearGradient
-              colors={[resolved.highlightColor, 'transparent']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 0, y: 1 }}
-              style={styles.highlightGradient}
-              pointerEvents="none"
-            />
+            LinearGradientComponent ? (
+              <LinearGradientComponent
+                colors={[resolved.highlightColor, 'transparent']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 0, y: 1 }}
+                style={styles.highlightGradient}
+                pointerEvents="none"
+              />
+            ) : (
+              <View
+                pointerEvents="none"
+                style={[
+                  styles.highlightGradient,
+                  { backgroundColor: resolved.highlightColor, opacity: 0.18 },
+                ]}
+              />
+            )
           )}
 
           {/* Layer 4: Glass edge border */}

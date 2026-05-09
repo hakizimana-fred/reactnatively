@@ -17,4 +17,8 @@ config.resolver.nodeModulesPaths = [
 // Ensure Metro resolves symlinked workspace packages
 config.resolver.disableHierarchicalLookup = false;
 
+// Fix metro-cache issue by disabling cache
+config.cacheStores = [];
+config.cacheVersion = '1';
+
 module.exports = config;
