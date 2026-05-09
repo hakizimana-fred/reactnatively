@@ -1,0 +1,43 @@
+import { palette } from '../tokens/colors';
+import type { ThemeColors } from './base';
+
+// Dark mode color overrides only — merged on top of lightColors at runtime.
+// All values are typed as ThemeColors so every key is validated.
+export const darkColors: ThemeColors = {
+  primary:         palette.indigo[400],
+  primaryHover:    palette.indigo[300],
+  primaryFocused:  palette.indigo[500],
+  primarySubtle:   'rgba(99,102,241,0.15)',
+  primaryMuted:    'rgba(99,102,241,0.10)',
+  secondary:       palette.violet[400],
+  secondaryHover:  palette.violet[300],
+  secondarySubtle: 'rgba(139,92,246,0.15)',
+  success:         palette.emerald[400],
+  successSubtle:   'rgba(16,185,129,0.15)',
+  successText:     palette.emerald[300],
+  warning:         palette.amber[400],
+  warningSubtle:   'rgba(245,158,11,0.15)',
+  warningText:     palette.amber[300],
+  error:           palette.rose[400],
+  errorHover:      palette.rose[300],
+  errorSubtle:     'rgba(244,63,94,0.15)',
+  errorText:       palette.rose[300],
+  info:            palette.cyan[400],
+  infoSubtle:      'rgba(6,182,212,0.15)',
+  infoText:        palette.cyan[300],
+  background:      '#0c0c14',
+  backgroundDeep:  '#08080f',
+  surface:         '#13131f',
+  surfaceRaised:   '#1a1a2e',
+  surfaceOverlay:  'rgba(13,13,25,0.95)',
+  text:            palette.neutral[50],
+  textSecondary:   palette.neutral[300],
+  textMuted:       palette.neutral[500],
+  textDisabled:    palette.neutral[700],
+  textInverted:    palette.neutral[900],
+  border:          palette.neutral[800],
+  borderSubtle:    palette.neutral[900],
+  borderStrong:    palette.neutral[700],
+  neutral:         palette.neutral[400],
+  neutralSubtle:   'rgba(255,255,255,0.06)',
+};

@@ -1,0 +1,13 @@
+{
+  "name": "@reactnatively/tsconfig",
+  "private": true,
+  "version": "0.0.0",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    "./base": "./base.json",
+    "./react-native": "./react-native.json"
+  }
+}
