@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
     "rootDir": ".",
-    "paths": {
-      "reactnatively": ["./src/index"]
-    },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "esModuleInterop": true,
