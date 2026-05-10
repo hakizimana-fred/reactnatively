@@ -11,9 +11,9 @@ import {
   type TextStyle,
 } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { SPRING_SNAPPY } from '@reactnatively/animations';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { SPRING_SNAPPY } from 'reactnatively-animations';
 import type { MultiSelectProps } from './MultiSelect.types';
 import type { SelectOption } from '../Select/Select.types';
 
@@ -370,11 +370,11 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   } as TextStyle,
   backdrop: {
-    ...StyleSheet.absoluteFill,
+    ...StyleSheet.absoluteFillObject,
     justifyContent: 'flex-end',
   } as ViewStyle,
   backdropFill: {
-    ...StyleSheet.absoluteFill,
+    ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0,0,0,0.4)',
   } as ViewStyle,
   sheet: {

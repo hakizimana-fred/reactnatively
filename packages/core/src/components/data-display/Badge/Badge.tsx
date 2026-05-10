@@ -5,9 +5,9 @@ import Animated, {
   useAnimatedStyle,
   withSpring,
 } from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { SPRING_BOUNCE } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { SPRING_BOUNCE } from 'reactnatively-animations';
 import type { BadgeProps, BadgeStatus, BadgeVariant } from './Badge.types';
 
 // ─── Size tables ──────────────────────────────────────────────────────────────

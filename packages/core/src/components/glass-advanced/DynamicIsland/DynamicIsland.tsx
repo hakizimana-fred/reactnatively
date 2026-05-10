@@ -5,8 +5,8 @@ import Animated, {
   useAnimatedStyle,
   withSpring,
 } from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { SPRING_BOUNCE } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { SPRING_BOUNCE } from 'reactnatively-animations';
 import type { DynamicIslandProps, DynamicIslandState } from './DynamicIsland.types';
 
 // Sizes for each state

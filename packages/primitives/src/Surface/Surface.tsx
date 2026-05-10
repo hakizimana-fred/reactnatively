@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Animated from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { radii } from '@reactnatively/theme';
-import type { RadiiKey } from '@reactnatively/theme';
+import { GlassView } from 'reactnatively-glass';
+import { radii } from 'reactnatively-theme';
+import type { RadiiKey } from 'reactnatively-theme';
 import type { SurfaceProps, GlassSurfaceConfig } from './Surface.types';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────

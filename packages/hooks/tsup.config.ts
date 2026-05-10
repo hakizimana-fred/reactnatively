@@ -14,7 +14,7 @@ export default defineConfig({
     'react-native-reanimated',
     'react-native-safe-area-context',
     'expo-haptics',
-    '@reactnatively/theme',
-    '@reactnatively/utils',
+    'reactnatively-theme',
+    'reactnatively-utils',
   ],
 });

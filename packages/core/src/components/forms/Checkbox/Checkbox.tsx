@@ -12,9 +12,9 @@ import Animated, {
   withSpring,
   interpolate,
 } from 'react-native-reanimated';
-import { useTheme } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { SPRING_BOUNCE } from '@reactnatively/animations';
+import { useTheme } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { SPRING_BOUNCE } from 'reactnatively-animations';
 import { useFormControl } from '../FormControl/form-control-context';
 import type { CheckboxProps, CheckboxSize } from './Checkbox.types';
 

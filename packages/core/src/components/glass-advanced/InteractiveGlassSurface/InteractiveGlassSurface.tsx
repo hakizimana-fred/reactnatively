@@ -5,8 +5,8 @@ import Animated, {
   useAnimatedStyle,
   withSpring,
 } from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { SPRING_SNAPPY } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { SPRING_SNAPPY } from 'reactnatively-animations';
 import type { InteractiveGlassSurfaceProps } from './InteractiveGlassSurface.types';
 
 const MAX_TILT_DEG = 12;

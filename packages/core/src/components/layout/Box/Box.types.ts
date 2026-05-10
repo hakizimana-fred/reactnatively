@@ -1,6 +1,6 @@
 import type { StyleProp, ViewStyle } from 'react-native';
 import type { ReactNode } from 'react';
-import type { SpacingKey, RadiiKey } from '@reactnatively/theme';
+import type { SpacingKey, RadiiKey } from 'reactnatively-theme';
 
 export type FlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 export type FlexAlign    = 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';

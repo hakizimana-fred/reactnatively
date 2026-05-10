@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated as RNAnimated } from 'react-native';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme, useIsDark } from '@reactnatively/theme';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme, useIsDark } from 'reactnatively-theme';
 import type { TimelineProps, TimelineItem, TimelineItemStatus } from './Timeline.types';
 
 // ─── Dot sizes ────────────────────────────────────────────────────────────────

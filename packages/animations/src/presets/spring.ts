@@ -1,5 +1,5 @@
 import type { WithSpringConfig } from 'react-native-reanimated';
-import { springs as springTokens } from '@reactnatively/theme';
+import { springs as springTokens } from 'reactnatively-theme';
 
 // Re-export typed spring configs for Reanimated's withSpring
 export const SPRING_SNAPPY: WithSpringConfig  = springTokens.snappy;

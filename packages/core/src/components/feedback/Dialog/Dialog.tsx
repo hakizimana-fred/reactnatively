@@ -14,9 +14,9 @@ import Animated, {
   withTiming,
   runOnJS,
 } from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { SPRING_SNAPPY, TIMING_EXIT } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { SPRING_SNAPPY, TIMING_EXIT } from 'reactnatively-animations';
 import type { DialogProps } from './Dialog.types';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');

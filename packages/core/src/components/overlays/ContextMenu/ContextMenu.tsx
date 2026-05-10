@@ -14,9 +14,9 @@ import Animated, {
   useAnimatedStyle,
   withSpring,
 } from 'react-native-reanimated';
-import { useIsDark } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { SPRING_SNAPPY } from '@reactnatively/animations';
+import { useIsDark } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { SPRING_SNAPPY } from 'reactnatively-animations';
 import type { ContextMenuProps } from './ContextMenu.types';
 
 const { width: SCREEN_W, height: SCREEN_H } = Dimensions.get('window');

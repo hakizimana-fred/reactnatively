@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Text, StyleSheet, type TextStyle } from 'react-native';
-import { useTheme } from '@reactnatively/theme';
+import { useTheme } from 'reactnatively-theme';
 import type { HeadingProps, HeadingLevel } from './Heading.types';
 import type { TextWeight } from '../Text/Text.types';
 

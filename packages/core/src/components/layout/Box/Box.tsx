@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { View, type ViewStyle } from 'react-native';
-import { spacing, radii } from '@reactnatively/theme';
-import type { SpacingKey, RadiiKey } from '@reactnatively/theme';
+import { spacing, radii } from 'reactnatively-theme';
+import type { SpacingKey, RadiiKey } from 'reactnatively-theme';
 import type { BoxProps } from './Box.types';
 
 function resolveSpacing(value: SpacingKey | number | undefined): number | undefined {

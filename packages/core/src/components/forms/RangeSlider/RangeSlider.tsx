@@ -7,8 +7,8 @@ import {
   type LayoutChangeEvent,
   type ViewStyle,
 } from 'react-native';
-import { useTheme } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
+import { useTheme } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
 import type { RangeSliderProps } from './RangeSlider.types';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

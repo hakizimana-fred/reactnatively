@@ -5,19 +5,22 @@ import {
   Platform,
   type ViewStyle,
 } from 'react-native';
-import { useTheme } from '@reactnatively/theme';
+import { useTheme } from 'reactnatively-theme';
 import { resolveGlass } from '../../engine/GlassEngine';
 import { IS_NO_GLASS, ANDROID_BLUR_METHOD } from '../../engine/CapabilityDetector';
 import type { GlassViewProps } from './GlassView.types';
 
-let BlurViewImpl: typeof import('expo-blur').BlurView | null | undefined;
+let BlurViewImpl: typeof import('expo-blur').BlurView | null = null;
+let blurLoaded = false;
+
 let LinearGradientImpl:
   | typeof import('react-native-linear-gradient').default
-  | null
-  | undefined;
+  | null = null;
+let gradientLoaded = false;
 
 function loadBlurView(): typeof import('expo-blur').BlurView | null {
-  if (BlurViewImpl !== undefined) return BlurViewImpl;
+  if (blurLoaded) return BlurViewImpl;
+  blurLoaded = true;
   try {
     // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
     BlurViewImpl = require('expo-blur').BlurView;
@@ -30,7 +33,8 @@ function loadBlurView(): typeof import('expo-blur').BlurView | null {
 function loadLinearGradient():
   | typeof import('react-native-linear-gradient').default
   | null {
-  if (LinearGradientImpl !== undefined) return LinearGradientImpl;
+  if (gradientLoaded) return LinearGradientImpl;
+  gradientLoaded = true;
   try {
     // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
     const gradientModule = require('react-native-linear-gradient');

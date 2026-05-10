@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { View, Text, StyleSheet, type ViewStyle, type TextStyle } from 'react-native';
-import { spacing } from '@reactnatively/theme';
-import { useIsDark } from '@reactnatively/theme';
-import type { SpacingKey } from '@reactnatively/theme';
+import { spacing } from 'reactnatively-theme';
+import { useIsDark } from 'reactnatively-theme';
+import type { SpacingKey } from 'reactnatively-theme';
 import type { DividerProps } from './Divider.types';
 
 function resolveSpacing(value: SpacingKey | number | undefined): number | undefined {

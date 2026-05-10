@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { View, type ViewStyle } from 'react-native';
-import { spacing } from '@reactnatively/theme';
-import type { SpacingKey } from '@reactnatively/theme';
+import { spacing } from 'reactnatively-theme';
+import type { SpacingKey } from 'reactnatively-theme';
 import type { SpacerProps } from './Spacer.types';
 
 function resolveSpacing(value: SpacingKey | number | undefined): number | undefined {

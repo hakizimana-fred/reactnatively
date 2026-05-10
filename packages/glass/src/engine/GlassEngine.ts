@@ -1,5 +1,5 @@
-import { glassTokens } from '@reactnatively/theme';
-import type { ResolvedColorScheme } from '@reactnatively/theme';
+import { glassTokens } from 'reactnatively-theme';
+import type { ResolvedColorScheme } from 'reactnatively-theme';
 import type { GlassConfig, ResolvedGlassStyle } from './GlassEngine.types';
 import { GLASS_CAPABILITY, adjustBlurForCapability } from './CapabilityDetector';
 

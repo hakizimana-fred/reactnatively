@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Pressable, StyleSheet, type GestureResponderEvent } from 'react-native';
 import Animated from 'react-native-reanimated';
-import { usePressAnimation } from '@reactnatively/animations';
+import { usePressAnimation } from 'reactnatively-animations';
 import { Surface } from '../Surface/Surface';
 import type { GlassPressableProps } from './GlassPressable.types';
 

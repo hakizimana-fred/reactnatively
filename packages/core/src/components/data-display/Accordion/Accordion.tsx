@@ -12,9 +12,9 @@ import Animated, {
   withSpring,
   interpolate,
 } from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { SPRING_SNAPPY } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { SPRING_SNAPPY } from 'reactnatively-animations';
 import type {
   AccordionProps,
   AccordionItemProps,

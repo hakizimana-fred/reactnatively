@@ -1,380 +1,255 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   ScrollView,
   StyleSheet,
-  Text,
+  Text as RNText,
   View,
   useColorScheme,
-  Dimensions,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { BlurView } from 'expo-blur';
 import {
-  GlassView,
-  FrostPanel,
-  Button,
-  LiquidCard,
-  Avatar,
-  Badge,
+  Stack, HStack, VStack,
+  Heading, Text as RNLText, GradientText,
+  Button, IconButton, FAB,
+  SearchBar, Switch, Checkbox, SegmentedTabs,
+  Avatar, Badge, Chip, Accordion, LiquidCard,
+  Alert, ProgressBar,
   Tabs,
-  SegmentedTabs,
-  Stack,
-  HStack,
-  VStack,
-  Center,
-  Spacer,
-  Text as Typography,
-  Heading,
-  GradientText,
-  IconButton,
-  FAB,
-  ProgressBar,
-  Skeleton,
-} from '@reactnatively/core';
-import { useTheme } from '@reactnatively/theme';
-
-const { width: SCREEN_WIDTH } = Dimensions.get('window');
+  Fade, Scale,
+} from 'reactnatively';
+import { GlassView } from 'reactnatively';
 
 export default function ShowcaseScreen() {
   const isDark = useColorScheme() === 'dark';
-  const { colorScheme } = useTheme();
-  const [activeTab, setActiveTab] = useState('home');
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0.67);
 
-  // Simulate progress animation
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress(prev => (prev + 0.01) % 1);
-    }, 100);
-    return () => clearInterval(interval);
-  }, []);
+  const bg = isDark
+    ? ['#07070f', '#0d0d1f', '#110d26'] as const
+    : ['#f0f4ff', '#e8edf8', '#dde3f0'] as const;
 
-  const bgGradient = isDark
-    ? ['#0a0a1a', '#0f0f24', '#130d2e', '#1a0b2e'] as const
-    : ['#f8fafc', '#f1f5f9', '#e2e8f0', '#cbd5e1'] as const;
-
-  const accentColor = isDark ? '#6366f1' : '#4f46e5';
+  const text    = isDark ? '#f1f5f9' : '#0f172a';
+  const subtext = isDark ? '#94a3b8' : '#64748b';
 
   return (
-    <LinearGradient colors={bgGradient} style={styles.gradient}>
+    <LinearGradient colors={bg} style={styles.root}>
       <SafeAreaView style={styles.safe} edges={['top']}>
-        {/* Floating Navigation Header */}
-        <FrostPanel
-          elevation={4}
-          style={styles.header}
-          edges={['top']}
-          borderRadius={0}
-        >
-          <HStack align="center" justify="space-between" style={styles.headerContent}>
-            <HStack align="center" gap={12}>
-              <GlassView
-                elevation={2}
-                borderRadius={12}
-                style={styles.logoContainer}
-                glow={{ color: accentColor, radius: 16, opacity: 0.3 }}
+        <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
+
+          <RNText style={[styles.pageTitle, { color: text }]}>Showcase</RNText>
+          <RNText style={[styles.pageSub, { color: subtext }]}>Component library test harness</RNText>
+
+          {/* ── Typography ─────────────────────────────────────────────────── */}
+          <Section title="Typography" color={subtext} />
+          <GlassView elevation={1} borderRadius={16} style={styles.card}>
+            <VStack gap={10}>
+              <Heading level="h1" style={{ color: text }}>Heading H1</Heading>
+              <Heading level="h2" style={{ color: text }}>Heading H2</Heading>
+              <Heading level="h3" style={{ color: text }}>Heading H3</Heading>
+              <Heading level="h4" style={{ color: text }}>Heading H4</Heading>
+              <RNLText variant="lg" weight="semibold" style={{ color: text }}>Body Large Semibold</RNLText>
+              <RNLText variant="md" style={{ color: subtext }}>Body Medium — default weight</RNLText>
+              <RNLText variant="sm" style={{ color: subtext }}>Small text for captions and hints</RNLText>
+              <GradientText
+                colors={['#6366f1', '#8b5cf6', '#ec4899']}
+                style={{ fontSize: 22, fontWeight: '700' }}
               >
-                <Typography variant="h4" weight="bold" style={{ color: accentColor }}>
-                  Æ
-                </Typography>
-              </GlassView>
-              <VStack gap={2}>
-                <Typography variant="h3" weight="bold" style={styles.appTitle}>
-                  Aether
-                </Typography>
-                <Typography variant="caption" style={styles.appSubtitle}>
-                  Neural Interface
-                </Typography>
+                Gradient Text
+              </GradientText>
+            </VStack>
+          </GlassView>
+
+          {/* ── Buttons ────────────────────────────────────────────────────── */}
+          <Section title="Buttons" color={subtext} />
+          <GlassView elevation={1} borderRadius={16} style={styles.card}>
+            <VStack gap={10}>
+              <HStack gap={8} wrap>
+                {(['solid', 'outline', 'ghost', 'tinted', 'glass'] as const).map((v) => (
+                  <Button key={v} label={v} variant={v} size="sm" />
+                ))}
+              </HStack>
+              <HStack gap={8} wrap>
+                {(['primary', 'secondary', 'success', 'warning', 'error'] as const).map((c) => (
+                  <Button key={c} label={c} color={c} size="sm" />
+                ))}
+              </HStack>
+              <HStack gap={8}>
+                <Button label="Loading" loading size="sm" flex={1} />
+                <Button label="Disabled" disabled size="sm" flex={1} />
+              </HStack>
+              <HStack gap={8} align="center">
+                <IconButton
+                  icon={<RNText style={{ fontSize: 18 }}>★</RNText>}
+                  size="md"
+                  variant="ghost"
+                  accessibilityLabel="Favourite"
+                />
+                <IconButton
+                  icon={<RNText style={{ fontSize: 18 }}>⚙</RNText>}
+                  size="md"
+                  variant="outline"
+                  color="secondary"
+                  accessibilityLabel="Settings"
+                />
+                <IconButton
+                  icon={<RNText style={{ fontSize: 18 }}>♥</RNText>}
+                  size="md"
+                  variant="solid"
+                  color="error"
+                  accessibilityLabel="Like"
+                />
+                <IconButton
+                  icon={<RNText style={{ fontSize: 16 }}>◈</RNText>}
+                  variant="glass"
+                  size="md"
+                  accessibilityLabel="Glass"
+                />
+              </HStack>
+            </VStack>
+          </GlassView>
+
+          {/* ── Forms ──────────────────────────────────────────────────────── */}
+          <Section title="Forms" color={subtext} />
+          <FormSection subtext={subtext} />
+
+          {/* ── Segmented Tabs ─────────────────────────────────────────────── */}
+          <Section title="Segmented Tabs" color={subtext} />
+          <SegmentedTabsDemo />
+
+          {/* ── Compound Tabs ──────────────────────────────────────────────── */}
+          <Section title="Tabs" color={subtext} />
+          <TabsDemo text={text} subtext={subtext} />
+
+          {/* ── Avatar + Badge + Chip ──────────────────────────────────────── */}
+          <Section title="Avatar · Badge · Chip" color={subtext} />
+          <GlassView elevation={1} borderRadius={16} style={styles.card}>
+            <VStack gap={14}>
+              <HStack gap={10} align="center">
+                {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((s) => (
+                  <Avatar key={s} name="Fred H" size={s} />
+                ))}
+              </HStack>
+              <HStack gap={10} align="center">
+                <Avatar name="Alice B" size="lg" online bordered fallbackBg="#6366f1" />
+                <Avatar name="Bob S"   size="lg" online="busy" bordered fallbackBg="#ec4899" />
+                <Avatar name="Carol W" size="lg" online="away" bordered fallbackBg="#f59e0b" />
+                <Avatar name="Dan J"   size="lg" online="offline" bordered />
+              </HStack>
+              <HStack gap={6} wrap>
+                {(['primary', 'success', 'warning', 'error', 'neutral'] as const).map((s) => (
+                  <Badge key={s} label={s} status={s} />
+                ))}
+              </HStack>
+              <HStack gap={6} wrap>
+                {(['primary', 'success', 'warning', 'error'] as const).map((s) => (
+                  <Badge key={s} label={s} status={s} variant="outline" />
+                ))}
+              </HStack>
+              <HStack gap={8} wrap>
+                <Chip label="Design" variant="solid" />
+                <Chip label="React Native" variant="outline" />
+                <Chip label="Selected" variant="solid" isSelected />
+                <Chip label="Closeable" variant="solid" onDismiss={() => {}} />
+              </HStack>
+            </VStack>
+          </GlassView>
+
+          {/* ── Progress + Alert ─────────────────────────────────────────────── */}
+          <Section title="Progress · Alert" color={subtext} />
+          <GlassView elevation={1} borderRadius={16} style={styles.card}>
+            <VStack gap={16}>
+              <VStack gap={8}>
+                <Label text="PROGRESS BARS" color={subtext} />
+                <ProgressBar value={75} variant="solid"    height={8} />
+                <ProgressBar value={55} variant="gradient" height={8} color="#6366f1" />
+                <ProgressBar value={88} variant="glass"    height={10} color="#10b981" />
+                <ProgressBar indeterminate               height={6}  color="#ec4899" />
               </VStack>
-            </HStack>
-
-            <HStack align="center" gap={8}>
-              <IconButton
-                name="search"
-                size="sm"
-                variant="ghost"
-                style={styles.iconButton}
-              />
-              <Avatar
-                name="Alex Chen"
-                size="sm"
-                bordered
-                fallbackBg={accentColor}
-              />
-            </HStack>
-          </HStack>
-        </FrostPanel>
-
-        <ScrollView
-          contentContainerStyle={styles.scroll}
-          showsVerticalScrollIndicator={false}
-        >
-          {/* Hero Section */}
-          <VStack gap={24} style={styles.heroSection}>
-            <Center>
-              <VStack gap={16} align="center">
-                <GlassView
-                  elevation={5}
-                  borderRadius={32}
-                  style={styles.heroCard}
-                  glow={{ color: accentColor, radius: 32, opacity: 0.25 }}
-                >
-                  <VStack gap={20} align="center" style={styles.heroContent}>
-                    <GlassView
-                      elevation={3}
-                      borderRadius={24}
-                      style={styles.albumArt}
-                      glow={{ color: '#ec4899', radius: 20, opacity: 0.4 }}
-                    >
-                      <Center style={styles.albumCenter}>
-                        <Typography variant="h1" style={styles.albumEmoji}>
-                          🌊
-                        </Typography>
-                      </Center>
-                    </GlassView>
-
-                    <VStack gap={8} align="center">
-                      <GradientText
-                        variant="h2"
-                        weight="bold"
-                        colors={[accentColor, '#ec4899', '#8b5cf6']}
-                        style={styles.songTitle}
-                      >
-                        Liquid Dreams
-                      </GradientText>
-                      <Typography variant="body" style={styles.artistName}>
-                        Neural Waves • 2026
-                      </Typography>
-                    </VStack>
-
-                    <VStack gap={12} style={styles.controlsSection}>
-                      <ProgressBar
-                        progress={progress}
-                        height={4}
-                        variant="glass"
-                        style={styles.progressBar}
-                      />
-
-                      <HStack align="center" justify="space-between" style={styles.timeLabels}>
-                        <Typography variant="caption" style={styles.timeText}>
-                          2:34
-                        </Typography>
-                        <Typography variant="caption" style={styles.timeText}>
-                          4:12
-                        </Typography>
-                      </HStack>
-
-                      <HStack align="center" justify="center" gap={24}>
-                        <IconButton
-                          name="skip-previous"
-                          size="lg"
-                          variant="ghost"
-                          style={styles.controlButton}
-                        />
-                        <GlassView
-                          elevation={4}
-                          borderRadius={28}
-                          style={styles.playButton}
-                          glow={isPlaying ? { color: '#10b981', radius: 24, opacity: 0.5 } : undefined}
-                        >
-                          <IconButton
-                            name={isPlaying ? "pause" : "play"}
-                            size="xl"
-                            variant="ghost"
-                            onPress={() => setIsPlaying(!isPlaying)}
-                            style={styles.playIcon}
-                          />
-                        </GlassView>
-                        <IconButton
-                          name="skip-next"
-                          size="lg"
-                          variant="ghost"
-                          style={styles.controlButton}
-                        />
-                      </HStack>
-                    </VStack>
-                  </VStack>
-                </GlassView>
-
-                <Typography variant="body" style={styles.heroDescription}>
-                  Immerse yourself in crystalline soundscapes crafted by AI neural networks
-                </Typography>
+              <VStack gap={8}>
+                <Label text="ALERTS" color={subtext} />
+                <Alert status="info"    title="Information" description="Here is some helpful context." />
+                <Alert status="success" title="Saved!" description="Your changes have been committed." />
+                <Alert status="warning" title="Low storage" description="Less than 500 MB remaining." isDismissible />
+                <Alert status="error"   variant="solid" title="Error" description="Connection timed out." />
               </VStack>
-            </Center>
+            </VStack>
+          </GlassView>
+
+          {/* ── Accordion ──────────────────────────────────────────────────── */}
+          <Section title="Accordion" color={subtext} />
+          <Accordion defaultValue={['arch']}>
+            <Accordion.Item value="arch" title="Architecture" icon={<RNText>◈</RNText>}>
+              <RNText style={{ color: subtext, lineHeight: 22, fontSize: 14 }}>
+                Strict acyclic dependency graph: core → primitives → glass → animations → theme → utils.
+                Each package ships sideEffects: false with dual CJS/ESM bundles.
+              </RNText>
+            </Accordion.Item>
+            <Accordion.Item value="glass" title="Glass Engine" icon={<RNText>◉</RNText>}>
+              <RNText style={{ color: subtext, lineHeight: 22, fontSize: 14 }}>
+                5-layer rendering stack: shadow shell, clip shell, native BlurView, tint overlay,
+                highlight gradient, border ring, children. Adapts per device capability at startup.
+              </RNText>
+            </Accordion.Item>
+            <Accordion.Item value="motion" title="Motion System" icon={<RNText>⟳</RNText>}>
+              <RNText style={{ color: subtext, lineHeight: 22, fontSize: 14 }}>
+                All animations run as Reanimated v3 worklets on the UI thread.
+                Spring physics via SPRING_SNAPPY, SPRING_LIQUID, SPRING_BOUNCE, SPRING_PRECISE.
+              </RNText>
+            </Accordion.Item>
+          </Accordion>
+
+          {/* ── Motion ─────────────────────────────────────────────────────── */}
+          <Section title="Motion — Fade · Scale" color={subtext} />
+          <MotionDemo text={text} subtext={subtext} />
+
+          {/* ── LiquidCard ─────────────────────────────────────────────────── */}
+          <Section title="LiquidCard" color={subtext} />
+          <VStack gap={12}>
+            <LiquidCard>
+              <LiquidCard.Header>
+                <RNText style={[styles.cardTitle, { color: text }]}>Solid Card</RNText>
+                <RNText style={{ color: subtext, fontSize: 12, marginTop: 2 }}>elevation=2 · no glass</RNText>
+              </LiquidCard.Header>
+              <LiquidCard.Body>
+                <RNText style={{ color: subtext, lineHeight: 22, fontSize: 14 }}>
+                  Default card — solid surface, border, shadow. Compound sub-components.
+                </RNText>
+              </LiquidCard.Body>
+              <LiquidCard.Footer>
+                <HStack gap={8} justify="flex-end">
+                  <Button label="Cancel" variant="ghost" size="sm" />
+                  <Button label="Confirm" size="sm" />
+                </HStack>
+              </LiquidCard.Footer>
+            </LiquidCard>
+
+            <LiquidCard elevation={4} variant="elevated" glow={{ color: '#6366f1', radius: 24, opacity: 0.3 }}>
+              <LiquidCard.Header bordered>
+                <RNText style={[styles.cardTitle, { color: text }]}>Glass Card + Glow</RNText>
+                <RNText style={{ color: subtext, fontSize: 12, marginTop: 2 }}>elevation=4 · variant=elevated</RNText>
+              </LiquidCard.Header>
+              <LiquidCard.Body>
+                <RNText style={{ color: subtext, lineHeight: 22, fontSize: 14 }}>
+                  Full glass card. Blur intensity scales with elevation token. Glow halo via shadow.
+                </RNText>
+              </LiquidCard.Body>
+            </LiquidCard>
+
+            <LiquidCard pressable onPress={() => {}}>
+              <LiquidCard.Header>
+                <RNText style={[styles.cardTitle, { color: text }]}>Pressable Card</RNText>
+                <RNText style={{ color: subtext, fontSize: 12, marginTop: 2 }}>Spring-driven press animation</RNText>
+              </LiquidCard.Header>
+            </LiquidCard>
           </VStack>
 
-          {/* Quick Actions */}
-          <VStack gap={16} style={styles.quickActions}>
-            <Typography variant="h4" weight="bold" style={styles.sectionTitle}>
-              Quick Actions
-            </Typography>
-
-            <HStack gap={12} style={styles.actionGrid}>
-              {[
-                { icon: '🎵', label: 'Discover', color: '#6366f1' },
-                { icon: '❤️', label: 'Favorites', color: '#ec4899' },
-                { icon: '📊', label: 'Analytics', color: '#10b981' },
-                { icon: '⚙️', label: 'Settings', color: '#f59e0b' },
-              ].map((action, index) => (
-                <GlassView
-                  key={index}
-                  elevation={2}
-                  borderRadius={16}
-                  style={styles.actionCard}
-                  glow={{ color: action.color, radius: 12, opacity: 0.2 }}
-                >
-                  <VStack gap={8} align="center">
-                    <GlassView
-                      elevation={1}
-                      borderRadius={12}
-                      style={styles.actionIcon}
-                      tintOverride={action.color + '20'}
-                    >
-                      <Typography variant="h3" style={styles.actionEmoji}>
-                        {action.icon}
-                      </Typography>
-                    </GlassView>
-                    <Typography variant="caption" weight="medium" style={styles.actionLabel}>
-                      {action.label}
-                    </Typography>
-                  </VStack>
-                </GlassView>
-              ))}
-            </HStack>
-          </VStack>
-
-          {/* Recent Sessions */}
-          <VStack gap={16} style={styles.recentSection}>
-            <HStack align="center" justify="space-between">
-              <Typography variant="h4" weight="bold" style={styles.sectionTitle}>
-                Recent Sessions
-              </Typography>
-              <Button label="View All" variant="ghost" size="sm" />
-            </HStack>
-
-            <Stack gap={12}>
-              {[
-                {
-                  title: 'Deep Focus',
-                  artist: 'Mind Waves',
-                  duration: '45 min',
-                  progress: 0.8,
-                  color: '#6366f1'
-                },
-                {
-                  title: 'Creative Flow',
-                  artist: 'Synapse Beats',
-                  duration: '32 min',
-                  progress: 0.6,
-                  color: '#ec4899'
-                },
-                {
-                  title: 'Meditation',
-                  artist: 'Zen Harmonics',
-                  duration: '20 min',
-                  progress: 0.9,
-                  color: '#10b981'
-                },
-              ].map((session, index) => (
-                <GlassView
-                  key={index}
-                  elevation={2}
-                  borderRadius={16}
-                  style={styles.sessionCard}
-                  glow={{ color: session.color, radius: 16, opacity: 0.15 }}
-                >
-                  <HStack align="center" gap={12}>
-                    <GlassView
-                      elevation={1}
-                      borderRadius={12}
-                      style={styles.sessionIcon}
-                      tintOverride={session.color + '15'}
-                    >
-                      <Typography variant="h4" style={styles.sessionEmoji}>
-                        🎵
-                      </Typography>
-                    </GlassView>
-
-                    <VStack gap={4} flex={1}>
-                      <Typography variant="body" weight="medium" style={styles.sessionTitle}>
-                        {session.title}
-                      </Typography>
-                      <Typography variant="caption" style={styles.sessionArtist}>
-                        {session.artist} • {session.duration}
-                      </Typography>
-                      <ProgressBar
-                        progress={session.progress}
-                        height={2}
-                        variant="glass"
-                        style={styles.sessionProgress}
-                      />
-                    </VStack>
-
-                    <IconButton
-                      name="play"
-                      size="sm"
-                      variant="ghost"
-                      style={styles.sessionPlay}
-                    />
-                  </HStack>
-                </GlassView>
-              ))}
-            </Stack>
-          </VStack>
-
-          {/* Neural Insights */}
-          <VStack gap={16} style={styles.insightsSection}>
-            <Typography variant="h4" weight="bold" style={styles.sectionTitle}>
-              Neural Insights
-            </Typography>
-
-            <HStack gap={12} style={styles.insightsGrid}>
-              {[
-                { value: '94%', label: 'Focus Score', color: '#10b981', icon: '🎯' },
-                { value: '2.3h', label: 'Today', color: '#6366f1', icon: '⏰' },
-                { value: '12', label: 'Sessions', color: '#ec4899', icon: '📈' },
-              ].map((insight, index) => (
-                <GlassView
-                  key={index}
-                  elevation={3}
-                  borderRadius={16}
-                  style={styles.insightCard}
-                  glow={{ color: insight.color, radius: 20, opacity: 0.2 }}
-                >
-                  <VStack gap={8} align="center">
-                    <GlassView
-                      elevation={2}
-                      borderRadius={12}
-                      style={styles.insightIcon}
-                      tintOverride={insight.color + '20'}
-                    >
-                      <Typography variant="h2" style={styles.insightEmoji}>
-                        {insight.icon}
-                      </Typography>
-                    </GlassView>
-                    <Typography variant="h2" weight="bold" style={[styles.insightValue, { color: insight.color }]}>
-                      {insight.value}
-                    </Typography>
-                    <Typography variant="caption" weight="medium" style={styles.insightLabel}>
-                      {insight.label}
-                    </Typography>
-                  </VStack>
-                </GlassView>
-              ))}
-            </HStack>
-          </VStack>
-
-          {/* Bottom Spacing */}
-          <View style={{ height: 120 }} />
+          <View style={{ height: 80 }} />
         </ScrollView>
 
-        {/* Floating Action Button */}
         <FAB
-          icon="plus"
-          position="bottom-right"
-          elevation={4}
-          glow={{ color: accentColor, radius: 24, opacity: 0.4 }}
+          icon={<RNText style={{ fontSize: 24, color: '#fff' }}>+</RNText>}
+          position="bottomRight"
+          variant="solid"
+          color="#6366f1"
           style={styles.fab}
         />
       </SafeAreaView>
@@ -382,189 +257,176 @@ export default function ShowcaseScreen() {
   );
 }
 
+// ── Form section ──────────────────────────────────────────────────────────────
+
+function FormSection({ subtext }: { subtext: string }) {
+  const [sw1, setSw1] = useState(true);
+  const [sw2, setSw2] = useState(false);
+  const [cb1, setCb1] = useState(true);
+  const [cb2, setCb2] = useState(false);
+  const [search, setSearch] = useState('');
+
+  return (
+    <GlassView elevation={1} borderRadius={16} style={styles.card}>
+      <VStack gap={14}>
+        <SearchBar
+          value={search}
+          onChangeText={setSearch}
+          placeholder="Search components…"
+          size="md"
+        />
+        <VStack gap={10}>
+          <Switch checked={sw1} onChange={setSw1} label="Notifications enabled" color="primary" />
+          <Switch checked={sw2} onChange={setSw2} label="Dark mode override"    color="success" />
+          <Switch checked={false} label="Disabled switch" isDisabled />
+        </VStack>
+        <VStack gap={8}>
+          <Checkbox checked={cb1} onChange={setCb1} label="Accept terms and conditions" />
+          <Checkbox checked={cb2} onChange={setCb2} label="Subscribe to updates" size="sm" />
+          <Checkbox checked={false} label="Disabled option" isDisabled />
+        </VStack>
+      </VStack>
+    </GlassView>
+  );
+}
+
+// ── SegmentedTabs demo ────────────────────────────────────────────────────────
+
+function SegmentedTabsDemo() {
+  const [view, setView] = useState('grid');
+
+  return (
+    <GlassView elevation={1} borderRadius={16} style={styles.card}>
+      <VStack gap={12}>
+        <SegmentedTabs
+          options={[
+            { label: 'Day',   value: 'day'   },
+            { label: 'Week',  value: 'week'  },
+            { label: 'Month', value: 'month' },
+          ]}
+          defaultValue="day"
+          size="md"
+        />
+        <SegmentedTabs
+          options={[
+            { label: 'Grid', value: 'grid' },
+            { label: 'List', value: 'list' },
+            { label: 'Map',  value: 'map'  },
+          ]}
+          value={view}
+          onChange={setView}
+          glass
+          size="sm"
+        />
+      </VStack>
+    </GlassView>
+  );
+}
+
+// ── Compound Tabs demo ────────────────────────────────────────────────────────
+
+function TabsDemo({ text, subtext }: { text: string; subtext: string }) {
+  return (
+    <GlassView elevation={1} borderRadius={16} style={styles.card}>
+      <VStack gap={16}>
+        <Tabs defaultValue="overview" variant="pills">
+          <Tabs.List>
+            <Tabs.Tab value="overview" label="Overview" />
+            <Tabs.Tab value="metrics"  label="Metrics"  />
+            <Tabs.Tab value="logs"     label="Logs"     />
+          </Tabs.List>
+          <Tabs.Panel value="overview">
+            <View style={styles.panel}>
+              <RNText style={{ color: text, fontWeight: '600' }}>Overview panel</RNText>
+              <RNText style={{ color: subtext, fontSize: 13, marginTop: 4 }}>Pill variant · spring indicator</RNText>
+            </View>
+          </Tabs.Panel>
+          <Tabs.Panel value="metrics">
+            <View style={styles.panel}>
+              <RNText style={{ color: text, fontWeight: '600' }}>Metrics panel</RNText>
+            </View>
+          </Tabs.Panel>
+          <Tabs.Panel value="logs">
+            <View style={styles.panel}>
+              <RNText style={{ color: text, fontWeight: '600' }}>Logs panel</RNText>
+            </View>
+          </Tabs.Panel>
+        </Tabs>
+
+        <Tabs defaultValue="a" variant="line">
+          <Tabs.List>
+            <Tabs.Tab value="a" label="Alpha" />
+            <Tabs.Tab value="b" label="Beta" />
+            <Tabs.Tab value="c" label="Gamma" isDisabled />
+          </Tabs.List>
+          <Tabs.Panel value="a">
+            <View style={styles.panel}>
+              <RNText style={{ color: text, fontWeight: '600' }}>Alpha content</RNText>
+              <RNText style={{ color: subtext, fontSize: 13, marginTop: 4 }}>Line variant · animated indicator</RNText>
+            </View>
+          </Tabs.Panel>
+          <Tabs.Panel value="b">
+            <View style={styles.panel}>
+              <RNText style={{ color: text, fontWeight: '600' }}>Beta content</RNText>
+            </View>
+          </Tabs.Panel>
+        </Tabs>
+      </VStack>
+    </GlassView>
+  );
+}
+
+// ── Motion demo ───────────────────────────────────────────────────────────────
+
+function MotionDemo({ text, subtext }: { text: string; subtext: string }) {
+  const [show, setShow] = useState(true);
+
+  return (
+    <GlassView elevation={1} borderRadius={16} style={styles.card}>
+      <VStack gap={12}>
+        <Button
+          label={show ? 'Hide' : 'Show'}
+          variant="outline"
+          size="sm"
+          onPress={() => setShow((v) => !v)}
+        />
+        <Fade in={show} duration={350}>
+          <GlassView elevation={2} borderRadius={12} style={styles.motionBox}>
+            <RNText style={{ color: text, fontWeight: '600' }}>Fade</RNText>
+            <RNText style={{ color: subtext, fontSize: 13 }}>opacity · 350ms timing</RNText>
+          </GlassView>
+        </Fade>
+        <Scale in={show} from={0.8}>
+          <GlassView elevation={2} borderRadius={12} style={styles.motionBox}>
+            <RNText style={{ color: text, fontWeight: '600' }}>Scale</RNText>
+            <RNText style={{ color: subtext, fontSize: 13 }}>scale from 0.8 · spring physics</RNText>
+          </GlassView>
+        </Scale>
+      </VStack>
+    </GlassView>
+  );
+}
+
+// ── Tiny helpers ──────────────────────────────────────────────────────────────
+
+function Section({ title, color }: { title: string; color: string }) {
+  return <RNText style={[styles.sectionTitle, { color }]}>{title.toUpperCase()}</RNText>;
+}
+
+function Label({ text, color }: { text: string; color: string }) {
+  return <RNText style={{ color, fontSize: 11, fontWeight: '700', letterSpacing: 1.2 }}>{text}</RNText>;
+}
+
 const styles = StyleSheet.create({
-  gradient: {
-    flex: 1,
-  },
-  safe: {
-    flex: 1,
-  },
-  header: {
-    marginHorizontal: 16,
-    marginTop: 8,
-    marginBottom: 16,
-  },
-  headerContent: {
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-  },
-  logoContainer: {
-    width: 40,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  appTitle: {
-    color: '#f1f5f9',
-    marginTop: 2,
-  },
-  appSubtitle: {
-    color: '#94a3b8',
-    opacity: 0.8,
-  },
-  iconButton: {
-    opacity: 0.8,
-  },
-  scroll: {
-    paddingHorizontal: 20,
-  },
-  heroSection: {
-    marginTop: 8,
-  },
-  heroCard: {
-    padding: 24,
-    width: SCREEN_WIDTH - 40,
-    maxWidth: 400,
-  },
-  heroContent: {
-    width: '100%',
-  },
-  albumArt: {
-    width: 120,
-    height: 120,
-    alignSelf: 'center',
-  },
-  albumCenter: {
-    width: '100%',
-    height: '100%',
-  },
-  albumEmoji: {
-    color: '#6366f1',
-  },
-  songTitle: {
-    textAlign: 'center',
-  },
-  artistName: {
-    color: '#94a3b8',
-    textAlign: 'center',
-  },
-  controlsSection: {
-    width: '100%',
-  },
-  progressBar: {
-    marginHorizontal: 8,
-  },
-  timeLabels: {
-    marginHorizontal: 8,
-  },
-  timeText: {
-    color: '#94a3b8',
-    fontSize: 12,
-  },
-  controlButton: {
-    opacity: 0.8,
-  },
-  playButton: {
-    width: 56,
-    height: 56,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  playIcon: {
-    marginLeft: 2,
-  },
-  heroDescription: {
-    color: '#94a3b8',
-    textAlign: 'center',
-    maxWidth: 300,
-    lineHeight: 20,
-  },
-  quickActions: {
-    marginTop: 8,
-  },
-  sectionTitle: {
-    color: '#f1f5f9',
-    marginBottom: 4,
-  },
-  actionGrid: {
-    flexWrap: 'wrap',
-  },
-  actionCard: {
-    width: (SCREEN_WIDTH - 40 - 24) / 2,
-    padding: 16,
-    alignItems: 'center',
-  },
-  actionIcon: {
-    width: 48,
-    height: 48,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  actionEmoji: {
-    color: '#6366f1',
-  },
-  actionLabel: {
-    color: '#f1f5f9',
-    textAlign: 'center',
-  },
-  recentSection: {
-    marginTop: 32,
-  },
-  sessionCard: {
-    padding: 16,
-  },
-  sessionIcon: {
-    width: 44,
-    height: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  sessionEmoji: {
-    color: '#6366f1',
-  },
-  sessionTitle: {
-    color: '#f1f5f9',
-  },
-  sessionArtist: {
-    color: '#94a3b8',
-  },
-  sessionProgress: {
-    marginTop: 4,
-  },
-  sessionPlay: {
-    opacity: 0.8,
-  },
-  insightsSection: {
-    marginTop: 32,
-  },
-  insightsGrid: {
-    flexWrap: 'wrap',
-  },
-  insightCard: {
-    flex: 1,
-    minWidth: (SCREEN_WIDTH - 40 - 24) / 3,
-    padding: 16,
-    alignItems: 'center',
-  },
-  insightIcon: {
-    width: 40,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 4,
-  },
-  insightEmoji: {
-    color: '#6366f1',
-  },
-  insightValue: {
-    textAlign: 'center',
-  },
-  insightLabel: {
-    color: '#94a3b8',
-    textAlign: 'center',
-  },
-  fab: {
-    marginBottom: 100,
-    marginRight: 20,
-  },
+  root:         { flex: 1 },
+  safe:         { flex: 1 },
+  scroll:       { paddingHorizontal: 16, paddingTop: 12, paddingBottom: 20 },
+  pageTitle:    { fontSize: 28, fontWeight: '800', letterSpacing: -0.8 },
+  pageSub:      { fontSize: 14, fontWeight: '500', marginTop: 4, marginBottom: 4 },
+  sectionTitle: { fontSize: 11, fontWeight: '700', letterSpacing: 1.4, marginTop: 24, marginBottom: 10 },
+  card:         { padding: 16, marginBottom: 2 },
+  cardTitle:    { fontSize: 16, fontWeight: '700' },
+  panel:        { paddingTop: 14, paddingHorizontal: 4 },
+  motionBox:    { padding: 16 },
+  fab:          { marginBottom: 24, marginRight: 24 },
 });

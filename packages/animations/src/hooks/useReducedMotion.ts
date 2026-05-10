@@ -1,6 +1,6 @@
 import { useReducedMotion as useReanimatedReducedMotion } from 'react-native-reanimated';
-import { reducedMotion, springs, duration } from '@reactnatively/theme';
-import type { SpringConfig } from '@reactnatively/theme';
+import { reducedMotion, springs, duration } from 'reactnatively-theme';
+import type { SpringConfig } from 'reactnatively-theme';
 
 export function useReducedMotion(): boolean {
   return useReanimatedReducedMotion();

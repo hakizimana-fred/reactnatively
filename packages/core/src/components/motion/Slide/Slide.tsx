@@ -5,7 +5,7 @@ import Animated, {
   useAnimatedStyle,
   withSpring,
 } from 'react-native-reanimated';
-import { SPRING_SNAPPY } from '@reactnatively/animations';
+import { SPRING_SNAPPY } from 'reactnatively-animations';
 import type { SlideProps, SlideDirection } from './Slide.types';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────

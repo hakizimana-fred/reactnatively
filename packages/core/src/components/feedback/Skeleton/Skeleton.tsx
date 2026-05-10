@@ -8,16 +8,16 @@ import Animated, {
   interpolate,
   Extrapolation,
 } from 'react-native-reanimated';
-import { useIsDark } from '@reactnatively/theme';
-import { useReducedMotion } from '@reactnatively/animations';
+import { useIsDark } from 'reactnatively-theme';
+import { useReducedMotion } from 'reactnatively-animations';
 
 let LinearGradientImpl:
   | typeof import('react-native-linear-gradient').default
-  | null
-  | undefined;
+  | null = null;
+let gradientLoaded = false;
 
 function loadLinearGradient(): typeof import('react-native-linear-gradient').default | null {
-  if (LinearGradientImpl !== undefined) return LinearGradientImpl;
+  if (gradientLoaded) return LinearGradientImpl;
   try {
     // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
     const gradientModule = require('react-native-linear-gradient');
@@ -25,6 +25,7 @@ function loadLinearGradient(): typeof import('react-native-linear-gradient').def
   } catch {
     LinearGradientImpl = null;
   }
+  gradientLoaded = true;
   return LinearGradientImpl;
 }
 
@@ -107,21 +108,24 @@ export const Skeleton = React.memo<SkeletonProps>(
       >
         {!isReduced && (
           <Animated.View style={[StyleSheet.absoluteFill, animatedStyle]}>
-            {loadLinearGradient() ? (
-              <LinearGradientImpl
-                colors={shimmerColors}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 0 }}
-                style={{ flex: 1, width: 300 }}
-              />
-            ) : (
-              <View
-                style={[
-                  StyleSheet.absoluteFill,
-                  { backgroundColor: shimmerLight, width: 300 },
-                ]}
-              />
-            )}
+            {(() => {
+              const LG = loadLinearGradient();
+              return LG ? (
+                <LG
+                  colors={shimmerColors}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 0 }}
+                  style={{ flex: 1, width: 300 }}
+                />
+              ) : (
+                <View
+                  style={[
+                    StyleSheet.absoluteFill,
+                    { backgroundColor: shimmerLight, width: 300 },
+                  ]}
+                />
+              );
+            })()}
           </Animated.View>
         )}
       </View>

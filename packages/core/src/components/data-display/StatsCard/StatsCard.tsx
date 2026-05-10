@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Animated from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { useEntranceAnimation } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { useEntranceAnimation } from 'reactnatively-animations';
 import type { StatsCardProps, TrendDirection } from './StatsCard.types';
 
 // ─── Trend indicator ──────────────────────────────────────────────────────────

@@ -11,9 +11,9 @@ import Animated, {
   useAnimatedStyle,
   withSpring,
 } from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme } from '@reactnatively/theme';
-import { SPRING_BOUNCE, usePressAnimation } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme } from 'reactnatively-theme';
+import { SPRING_BOUNCE, usePressAnimation } from 'reactnatively-animations';
 import type { FloatingMediaPanelProps, MediaPanelState } from './FloatingMediaPanel.types';
 
 const MINI_HEIGHT     = 56;

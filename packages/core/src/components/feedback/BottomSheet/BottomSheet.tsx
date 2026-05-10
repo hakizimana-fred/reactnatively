@@ -10,8 +10,8 @@ import {
   Dimensions,
   Platform,
 } from 'react-native';
-import { GlassView } from '@reactnatively/glass';
-import { useIsDark } from '@reactnatively/theme';
+import { GlassView } from 'reactnatively-glass';
+import { useIsDark } from 'reactnatively-theme';
 import type { BottomSheetProps } from './BottomSheet.types';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');

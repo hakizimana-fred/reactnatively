@@ -8,6 +8,7 @@ export default defineConfig({
   clean: true,
   treeshake: true,
   splitting: true,
+  // Internal workspace packages are bundled in — users install only "reactnatively"
   external: [
     'react',
     'react-native',
@@ -15,9 +16,5 @@ export default defineConfig({
     'react-native-gesture-handler',
     'react-native-linear-gradient',
     'react-native-reanimated',
-    '@reactnatively/animations',
-    '@reactnatively/glass',
-    '@reactnatively/theme',
-    '@reactnatively/utils',
   ],
 });

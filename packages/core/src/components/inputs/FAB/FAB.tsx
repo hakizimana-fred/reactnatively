@@ -8,9 +8,9 @@ import {
   type GestureResponderEvent,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
-import { useTheme } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { usePressAnimation, useEntranceAnimation } from '@reactnatively/animations';
+import { useTheme } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { usePressAnimation, useEntranceAnimation } from 'reactnatively-animations';
 import type { FABProps, FABSize, FABPosition } from './FAB.types';
 
 // ─── Size system ─────────────────────────────────────────────────────────────

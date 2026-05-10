@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { View, Text, FlatList, SectionList, StyleSheet } from 'react-native';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme, useIsDark } from '@reactnatively/theme';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme, useIsDark } from 'reactnatively-theme';
 import { ListItem } from './ListItem';
 import type { ListProps, ListItemProps, ListSection } from './List.types';
 

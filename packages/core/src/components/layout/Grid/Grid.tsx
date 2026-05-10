@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { View, StyleSheet, type ViewStyle } from 'react-native';
-import { spacing } from '@reactnatively/theme';
-import type { SpacingKey } from '@reactnatively/theme';
+import { spacing } from 'reactnatively-theme';
+import type { SpacingKey } from 'reactnatively-theme';
 import type { GridProps } from './Grid.types';
 
 function resolveSpacing(value: SpacingKey | number | undefined): number {

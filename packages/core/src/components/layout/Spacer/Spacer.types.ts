@@ -1,4 +1,4 @@
-import type { SpacingKey } from '@reactnatively/theme';
+import type { SpacingKey } from 'reactnatively-theme';
 
 export interface SpacerProps {
   size?: SpacingKey | number;

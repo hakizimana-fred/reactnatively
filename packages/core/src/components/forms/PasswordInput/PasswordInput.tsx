@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Pressable, Text, StyleSheet } from 'react-native';
-import { useTheme } from '@reactnatively/theme';
+import { useTheme } from 'reactnatively-theme';
 import { TextInput } from '../TextInput/TextInput';
 import type { PasswordInputProps } from './PasswordInput.types';
 

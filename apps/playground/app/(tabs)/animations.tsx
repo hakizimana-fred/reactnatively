@@ -16,7 +16,7 @@ import Animated, {
   withRepeat,
   withSequence,
 } from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
+import { GlassView } from 'reactnatively';
 import {
   SPRING_SNAPPY,
   SPRING_LIQUID,
@@ -26,8 +26,8 @@ import {
   TIMING_SLOW,
   useEntranceAnimation,
   usePressAnimation,
-} from '@reactnatively/animations';
-import { Button, Stack, HStack } from '@reactnatively/core';
+} from 'reactnatively';
+import { Button, Stack, HStack } from 'reactnatively';
 
 export default function AnimationsScreen() {
   const isDark = useColorScheme() === 'dark';

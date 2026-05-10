@@ -7,9 +7,9 @@ import Animated, {
   withTiming,
   runOnJS,
 } from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { useIsDark } from '@reactnatively/theme';
-import { SPRING_REVEAL, TIMING_EXIT } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { useIsDark } from 'reactnatively-theme';
+import { SPRING_REVEAL, TIMING_EXIT } from 'reactnatively-animations';
 import type { ToastItem } from './Toast.types';
 
 interface ToastProps {

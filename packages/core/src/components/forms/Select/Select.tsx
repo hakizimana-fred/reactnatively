@@ -16,9 +16,9 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { SPRING_SNAPPY, TIMING_FAST } from '@reactnatively/animations';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { SPRING_SNAPPY, TIMING_FAST } from 'reactnatively-animations';
 import type { SelectProps, SelectOption } from './Select.types';
 
 // ─── Size config ──────────────────────────────────────────────────────────────
@@ -315,11 +315,11 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   } as TextStyle,
   backdrop: {
-    ...StyleSheet.absoluteFill,
+    ...StyleSheet.absoluteFillObject,
     justifyContent: 'flex-end',
   } as ViewStyle,
   backdropFill: {
-    ...StyleSheet.absoluteFill,
+    ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0,0,0,0.4)',
   } as ViewStyle,
   sheet: {

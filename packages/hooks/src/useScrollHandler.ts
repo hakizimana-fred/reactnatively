@@ -33,7 +33,7 @@ function loadReanimated(): typeof import('react-native-reanimated') {
     return reanimated;
   } catch {
     throw new Error(
-      '[@reactnatively/hooks] useScrollHandler requires react-native-reanimated >= 3.6.0. ' +
+      '[reactnatively-hooks] useScrollHandler requires react-native-reanimated >= 3.6.0. ' +
         'Install it with: npx expo install react-native-reanimated',
     );
   }

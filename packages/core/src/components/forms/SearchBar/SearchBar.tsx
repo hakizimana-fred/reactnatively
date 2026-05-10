@@ -14,9 +14,9 @@ import Animated, {
   useAnimatedStyle,
   withTiming,
 } from 'react-native-reanimated';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { TIMING_FAST } from '@reactnatively/animations';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { TIMING_FAST } from 'reactnatively-animations';
 import type { SearchBarProps, SearchBarSize } from './SearchBar.types';
 
 // ─── Size system ─────────────────────────────────────────────────────────────

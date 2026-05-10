@@ -6,7 +6,7 @@ import {
   type StyleProp,
   type ViewStyle,
 } from 'react-native';
-import { useTheme } from '@reactnatively/theme';
+import { useTheme } from 'reactnatively-theme';
 import type { SpinnerProps, SpinnerSize } from './Spinner.types';
 
 const SIZE_MAP: Record<SpinnerSize, number> = {

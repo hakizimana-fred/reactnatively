@@ -7,7 +7,7 @@ import {
   type ReactNode,
 } from 'react';
 import { useColorScheme as useRNColorScheme } from 'react-native';
-import { deepMerge, type DeepPartial } from '@reactnatively/utils';
+import { deepMerge, type DeepPartial } from 'reactnatively-utils';
 import { baseTheme, type BaseTheme } from './themes/base';
 import { darkColors } from './themes/dark';
 

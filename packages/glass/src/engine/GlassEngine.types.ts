@@ -1,4 +1,4 @@
-import type { GlassElevation, GlassTintVariant, GlassHighlight } from '@reactnatively/theme';
+import type { GlassElevation, GlassTintVariant, GlassHighlight } from 'reactnatively-theme';
 import type { GlassCapability } from './CapabilityDetector';
 
 export type { GlassCapability };

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { useTheme } from '@reactnatively/theme';
-import { useId } from '@reactnatively/hooks';
+import { useTheme } from 'reactnatively-theme';
+import { useId } from 'reactnatively-hooks';
 import { FormControlContext } from './form-control-context';
 import type { FormControlContextValue } from './form-control-context';
 import type { FormControlProps } from './FormControl.types';

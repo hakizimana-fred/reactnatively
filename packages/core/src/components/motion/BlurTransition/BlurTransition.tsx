@@ -5,7 +5,7 @@ import Animated, {
   useAnimatedStyle,
   withTiming,
 } from 'react-native-reanimated';
-import { TIMING_FAST } from '@reactnatively/animations';
+import { TIMING_FAST } from 'reactnatively-animations';
 import type { BlurTransitionProps } from './BlurTransition.types';
 
 // ─── Component ────────────────────────────────────────────────────────────────

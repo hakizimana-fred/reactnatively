@@ -12,9 +12,9 @@ import Animated, {
   useAnimatedStyle,
   withTiming,
 } from 'react-native-reanimated';
-import { useIsDark } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { TIMING_FAST, TIMING_EXIT } from '@reactnatively/animations';
+import { useIsDark } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { TIMING_FAST, TIMING_EXIT } from 'reactnatively-animations';
 import type { HoverCardProps, HoverCardPlacement } from './HoverCard.types';
 
 const CARD_OFFSET = 8;

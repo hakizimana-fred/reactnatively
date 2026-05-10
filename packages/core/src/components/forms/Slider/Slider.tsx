@@ -8,9 +8,9 @@ import {
   type LayoutChangeEvent,
   type ViewStyle,
 } from 'react-native';
-import { useTheme } from '@reactnatively/theme';
-import { useControllable } from '@reactnatively/hooks';
-import { defineVariants } from '@reactnatively/utils';
+import { useTheme } from 'reactnatively-theme';
+import { useControllable } from 'reactnatively-hooks';
+import { defineVariants } from 'reactnatively-utils';
 import type { SliderProps, SliderSizeConfig } from './Slider.types';
 
 // ─── Size configs ─────────────────────────────────────────────────────────────

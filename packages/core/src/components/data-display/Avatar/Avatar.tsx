@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { defineVariants } from '@reactnatively/utils';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { defineVariants } from 'reactnatively-utils';
 import type { AvatarProps, AvatarSize } from './Avatar.types';
 
 const SIZE_PX = defineVariants<string, number>({

@@ -17,9 +17,9 @@ import Animated, {
   interpolate,
   interpolateColor,
 } from 'react-native-reanimated';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { SPRING_SNAPPY } from '@reactnatively/animations';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { SPRING_SNAPPY } from 'reactnatively-animations';
 import { useFormControl } from '../FormControl/form-control-context';
 import type { TextInputProps, TextInputSizeConfig } from './TextInput.types';
 

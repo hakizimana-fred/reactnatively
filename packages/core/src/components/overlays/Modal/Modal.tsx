@@ -16,10 +16,10 @@ import Animated, {
   withTiming,
   runOnJS,
 } from 'react-native-reanimated';
-import { useTheme } from '@reactnatively/theme';
-import { useIsDark } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { SPRING_SNAPPY, TIMING_EXIT } from '@reactnatively/animations';
+import { useTheme } from 'reactnatively-theme';
+import { useIsDark } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { SPRING_SNAPPY, TIMING_EXIT } from 'reactnatively-animations';
 import type { ModalProps, ModalSize } from './Modal.types';
 
 // ─── Size map ─────────────────────────────────────────────────────────────────

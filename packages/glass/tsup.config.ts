@@ -14,8 +14,8 @@ export default defineConfig({
     'expo-blur',
     'react-native-linear-gradient',
     'react-native-reanimated',
-    '@reactnatively/animations',
-    '@reactnatively/theme',
-    '@reactnatively/utils',
+    'reactnatively-animations',
+    'reactnatively-theme',
+    'reactnatively-utils',
   ],
 });

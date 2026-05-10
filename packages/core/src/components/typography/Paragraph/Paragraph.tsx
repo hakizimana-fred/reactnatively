@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Text, StyleSheet, type TextStyle } from 'react-native';
-import { useTheme } from '@reactnatively/theme';
+import { useTheme } from 'reactnatively-theme';
 import type { ParagraphProps, ParagraphSize } from './Paragraph.types';
 
 const SIZE_CONFIG: Record<ParagraphSize, { fontSize: number; lineHeight: number }> = {

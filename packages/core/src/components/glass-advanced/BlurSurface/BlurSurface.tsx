@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { GlassView } from '@reactnatively/glass';
+import { GlassView } from 'reactnatively-glass';
 import type { BlurSurfaceProps } from './BlurSurface.types';
 
 /**

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Text, StyleSheet, type TextStyle } from 'react-native';
-import { useTheme } from '@reactnatively/theme';
+import { useTheme } from 'reactnatively-theme';
 import type { CaptionProps } from './Caption.types';
 
 export const Caption = React.memo<CaptionProps>(

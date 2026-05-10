@@ -12,9 +12,9 @@ import Animated, {
   withTiming,
   interpolate,
 } from 'react-native-reanimated';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { SPRING_BOUNCE, TIMING_FAST } from '@reactnatively/animations';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { SPRING_BOUNCE, TIMING_FAST } from 'reactnatively-animations';
 import type { StepItem, StepperProps, StepStatus, StepperVariant } from './Stepper.types';
 
 // ─── Constants ────────────────────────────────────────────────────────────────

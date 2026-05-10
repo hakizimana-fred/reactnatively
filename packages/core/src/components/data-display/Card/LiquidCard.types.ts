@@ -1,6 +1,6 @@
 import type { StyleProp, ViewStyle, ImageStyle } from 'react-native';
 import type { ReactNode } from 'react';
-import type { GlassElevation, GlassTintVariant } from '@reactnatively/theme';
+import type { GlassElevation, GlassTintVariant } from 'reactnatively-theme';
 
 export interface LiquidCardProps {
   // Glass configuration

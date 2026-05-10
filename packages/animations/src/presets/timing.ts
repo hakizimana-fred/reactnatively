@@ -1,5 +1,5 @@
 import { Easing, type WithTimingConfig } from 'react-native-reanimated';
-import { duration as durationTokens, easing as easingTokens } from '@reactnatively/theme';
+import { duration as durationTokens, easing as easingTokens } from 'reactnatively-theme';
 
 function bezier(arr: readonly number[]): ReturnType<typeof Easing.bezier> {
   const [x1 = 0, y1 = 0, x2 = 1, y2 = 1] = arr;

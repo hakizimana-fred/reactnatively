@@ -15,10 +15,10 @@ import Animated, {
   withSpring,
   interpolate,
 } from 'react-native-reanimated';
-import { useTheme } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { SPRING_SNAPPY } from '@reactnatively/animations';
-import { defineVariants } from '@reactnatively/utils';
+import { useTheme } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { SPRING_SNAPPY } from 'reactnatively-animations';
+import { defineVariants } from 'reactnatively-utils';
 import type { ButtonProps, ButtonSizeConfig, ButtonColor } from './Button.types';
 
 // ─── Size system ─────────────────────────────────────────────────────────────

@@ -6,9 +6,9 @@ import {
   StyleSheet,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { useEntranceAnimation } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { useEntranceAnimation } from 'reactnatively-animations';
 import type { EmptyStateProps } from './EmptyState.types';
 
 export const EmptyState = React.memo<EmptyStateProps>(

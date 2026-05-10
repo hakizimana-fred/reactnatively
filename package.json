@@ -10,7 +10,7 @@
     "clean": "turbo clean && rm -rf node_modules",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo build --filter=@reactnatively/* && changeset publish",
+    "release": "turbo build --filter=reactnatively-* && changeset publish",
     "playground": "pnpm --filter playground start"
   },
   "devDependencies": {
@@ -31,7 +31,10 @@
   "pnpm": {
     "overrides": {
       "metro": "0.81.5",
-      "metro-cache": "0.81.5"
+      "metro-cache": "0.81.5",
+      "react-native": "0.79.6",
+      "react": "19.0.0",
+      "react-native-reanimated": "3.17.5"
     }
   },
   "prettier": {

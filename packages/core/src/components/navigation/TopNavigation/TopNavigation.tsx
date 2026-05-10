@@ -10,8 +10,8 @@ import Animated, {
   interpolate,
   useAnimatedStyle,
 } from 'react-native-reanimated';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
 import type { TopNavigationProps } from './TopNavigation.types';
 
 // ─── Constants ────────────────────────────────────────────────────────────────

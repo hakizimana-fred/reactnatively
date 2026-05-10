@@ -12,8 +12,8 @@ import Animated, {
   withSpring,
   interpolate,
 } from 'react-native-reanimated';
-import { useTheme } from '@reactnatively/theme';
-import { SPRING_BOUNCE } from '@reactnatively/animations';
+import { useTheme } from 'reactnatively-theme';
+import { SPRING_BOUNCE } from 'reactnatively-animations';
 import { useRadioGroup } from './radio-group-context';
 import type { RadioProps, RadioSize } from './Radio.types';
 

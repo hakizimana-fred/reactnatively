@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Text as RNText, StyleSheet, type TextStyle } from 'react-native';
-import { useTheme } from '@reactnatively/theme';
+import { useTheme } from 'reactnatively-theme';
 import type { TextProps, TextVariant, TextWeight } from './Text.types';
 
 const FONT_SIZES: Record<TextVariant, number> = {

@@ -8,9 +8,9 @@ import Animated, {
   Extrapolation,
 } from 'react-native-reanimated';
 import type { SharedValue } from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme } from '@reactnatively/theme';
-import { SPRING_SNAPPY } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme } from 'reactnatively-theme';
+import { SPRING_SNAPPY } from 'reactnatively-animations';
 import type { GlassSidebarItem, GlassSidebarProps } from './GlassSidebar.types';
 
 const DEFAULT_WIDTH = 240;

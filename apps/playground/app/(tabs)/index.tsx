@@ -8,9 +8,9 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { GlassView } from '@reactnatively/glass';
-import { Button, Stack, HStack } from '@reactnatively/core';
-import { toast } from '@reactnatively/core';
+import { GlassView } from 'reactnatively';
+import { Button, Stack, HStack } from 'reactnatively';
+import { toast } from 'reactnatively';
 
 export default function GlassScreen() {
   const isDark = useColorScheme() === 'dark';

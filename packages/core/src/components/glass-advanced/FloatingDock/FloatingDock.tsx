@@ -13,8 +13,8 @@ import Animated, {
   withSpring,
 } from 'react-native-reanimated';
 import type { SharedValue } from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { usePressAnimation, SPRING_SNAPPY } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { usePressAnimation, SPRING_SNAPPY } from 'reactnatively-animations';
 import type { DockItem, FloatingDockProps } from './FloatingDock.types';
 
 const ITEM_SIZE = 48;

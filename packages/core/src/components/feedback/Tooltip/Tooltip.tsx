@@ -15,9 +15,9 @@ import Animated, {
   withTiming,
   withSpring,
 } from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { useIsDark } from '@reactnatively/theme';
-import { SPRING_SNAPPY, TIMING_FAST, TIMING_EXIT } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { useIsDark } from 'reactnatively-theme';
+import { SPRING_SNAPPY, TIMING_FAST, TIMING_EXIT } from 'reactnatively-animations';
 import type { TooltipProps, TooltipPlacement } from './Tooltip.types';
 
 const TOOLTIP_GAP   = 8;

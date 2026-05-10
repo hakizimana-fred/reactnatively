@@ -6,7 +6,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import { useTheme } from '@reactnatively/theme';
+import { useTheme } from 'reactnatively-theme';
 import type { BreadcrumbItem, BreadcrumbProps } from './Breadcrumb.types';
 
 // ─── Component ───────────────────────────────────────────────────────────────

@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { Text, StyleSheet, type TextStyle } from 'react-native';
-import { useTheme } from '@reactnatively/theme';
-import { fontSize as fontSizeTokens, fontWeight as fontWeightTokens, lineHeight as lineHeightTokens } from '@reactnatively/theme';
-import type { ThemeColorKey } from '@reactnatively/theme';
+import { useTheme } from 'reactnatively-theme';
+import { fontSize as fontSizeTokens, fontWeight as fontWeightTokens, lineHeight as lineHeightTokens } from 'reactnatively-theme';
+import type { ThemeColorKey } from 'reactnatively-theme';
 import type { TextProps } from 'react-native';
 import type { ReactNode } from 'react';
 

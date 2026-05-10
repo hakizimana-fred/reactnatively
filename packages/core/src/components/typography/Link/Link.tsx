@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { Text, Linking, StyleSheet, type TextStyle } from 'react-native';
-import { useTheme } from '@reactnatively/theme';
+import { useTheme } from 'reactnatively-theme';
 import type { LinkProps } from './Link.types';
 
 export const Link = React.memo<LinkProps>(

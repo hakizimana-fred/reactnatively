@@ -15,9 +15,9 @@ import Animated, {
   withTiming,
   runOnJS,
 } from 'react-native-reanimated';
-import { useIsDark } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { SPRING_SNAPPY, TIMING_EXIT } from '@reactnatively/animations';
+import { useIsDark } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { SPRING_SNAPPY, TIMING_EXIT } from 'reactnatively-animations';
 import type { ActionSheetProps } from './ActionSheet.types';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');

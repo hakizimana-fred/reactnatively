@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { View, Text, Platform, StyleSheet, type ViewStyle, type TextStyle } from 'react-native';
-import { useIsDark } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
+import { useIsDark } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
 import type { CodeProps } from './Code.types';
 
 const MONOSPACE_FONT = Platform.select<string>({

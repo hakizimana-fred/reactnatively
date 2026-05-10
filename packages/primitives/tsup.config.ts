@@ -16,9 +16,9 @@ export default defineConfig({
     'react-native-linear-gradient',
     'expo-blur',
     'expo-haptics',
-    '@reactnatively/theme',
-    '@reactnatively/animations',
-    '@reactnatively/glass',
-    '@reactnatively/utils',
+    'reactnatively-theme',
+    'reactnatively-animations',
+    'reactnatively-glass',
+    'reactnatively-utils',
   ],
 });

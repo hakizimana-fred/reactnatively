@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useTheme } from '@reactnatively/theme';
+import { useTheme } from 'reactnatively-theme';
 import { resolveGlass } from '../engine/GlassEngine';
 import type { GlassConfig, ResolvedGlassStyle } from '../engine/GlassEngine.types';
 

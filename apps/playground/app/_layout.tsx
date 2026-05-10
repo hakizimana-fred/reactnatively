@@ -1,8 +1,8 @@
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { ThemeProvider } from '@reactnatively/theme';
-import { ToastProvider } from '@reactnatively/core';
+import { ThemeProvider } from 'reactnatively';
+import { ToastProvider } from 'reactnatively';
 import { StyleSheet } from 'react-native';
 
 export default function RootLayout() {

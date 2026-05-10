@@ -11,8 +11,8 @@ import {
   StyleSheet,
   type ViewToken,
 } from 'react-native';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme } from '@reactnatively/theme';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme } from 'reactnatively-theme';
 import type { CarouselProps } from './Carousel.types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;

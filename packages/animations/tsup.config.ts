@@ -12,7 +12,7 @@ export default defineConfig({
     'react',
     'react-native',
     'react-native-reanimated',
-    '@reactnatively/theme',
-    '@reactnatively/utils',
+    'reactnatively-theme',
+    'reactnatively-utils',
   ],
 });

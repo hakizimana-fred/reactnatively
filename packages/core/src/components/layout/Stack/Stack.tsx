@@ -1,7 +1,7 @@
 import React, { useMemo, Children, isValidElement } from 'react';
 import { View, StyleSheet, type ViewStyle } from 'react-native';
-import { spacing } from '@reactnatively/theme';
-import type { SpacingKey } from '@reactnatively/theme';
+import { spacing } from 'reactnatively-theme';
+import type { SpacingKey } from 'reactnatively-theme';
 import type { StackProps } from './Stack.types';
 
 function resolveSpacing(value: SpacingKey | number | undefined): number {

@@ -1,6 +1,6 @@
 import type { StyleProp, ViewStyle } from 'react-native';
 import type { ReactNode } from 'react';
-import type { SpacingKey } from '@reactnatively/theme';
+import type { SpacingKey } from 'reactnatively-theme';
 
 export interface GridProps {
   columns?: number;

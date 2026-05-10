@@ -1,19 +1,21 @@
 {
-  "name": "@reactnatively/glass",
+  "name": "reactnatively-glass",
   "version": "0.1.0",
   "description": "Liquid Glass rendering engine for Reactnatively — blur, vibrancy, depth",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     }
   },
   "sideEffects": false,
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
@@ -21,9 +23,9 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@reactnatively/animations": "workspace:*",
-    "@reactnatively/theme": "workspace:*",
-    "@reactnatively/utils": "workspace:*"
+    "reactnatively-animations": "workspace:*",
+    "reactnatively-theme": "workspace:*",
+    "reactnatively-utils": "workspace:*"
   },
   "peerDependencies": {
     "expo-blur": ">=13.0.0",
@@ -33,17 +35,41 @@
     "react-native-reanimated": ">=3.6.0"
   },
   "peerDependenciesMeta": {
-    "expo-blur": { "optional": true },
-    "react-native-linear-gradient": { "optional": true },
-    "react-native-reanimated": { "optional": false }
+    "expo-blur": {
+      "optional": true
+    },
+    "react-native-linear-gradient": {
+      "optional": true
+    },
+    "react-native-reanimated": {
+      "optional": false
+    }
   },
   "devDependencies": {
     "@reactnatively/tsconfig": "workspace:*",
     "tsup": "^8.2.4",
     "typescript": "^5.5.3"
   },
+  "keywords": [
+    "react-native",
+    "expo",
+    "glass",
+    "liquid-glass",
+    "blur",
+    "vibrancy",
+    "glassmorphism",
+    "ui",
+    "design-system",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hakizimana-fred/reactnatively.git",
+    "directory": "packages/glass"
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "private": true
 }

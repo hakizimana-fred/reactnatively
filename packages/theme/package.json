@@ -1,19 +1,21 @@
 {
-  "name": "@reactnatively/theme",
+  "name": "reactnatively-theme",
   "version": "0.1.0",
   "description": "Liquid Glass token engine and theme system for Reactnatively",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     }
   },
   "sideEffects": false,
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
@@ -21,7 +23,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@reactnatively/utils": "workspace:*"
+    "reactnatively-utils": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -32,8 +34,25 @@
     "tsup": "^8.2.4",
     "typescript": "^5.5.3"
   },
+  "keywords": [
+    "react-native",
+    "expo",
+    "theme",
+    "tokens",
+    "design-system",
+    "glass",
+    "liquid-glass",
+    "dark-mode",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hakizimana-fred/reactnatively.git",
+    "directory": "packages/theme"
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "private": true
 }

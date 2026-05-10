@@ -8,5 +8,5 @@ export default defineConfig({
   clean: true,
   treeshake: true,
   splitting: false,
-  external: ['react', 'react-native', '@reactnatively/utils'],
+  external: ['react', 'react-native', 'reactnatively-utils'],
 });

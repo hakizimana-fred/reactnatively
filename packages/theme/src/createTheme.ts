@@ -1,4 +1,4 @@
-import { deepMerge, type DeepPartial } from '@reactnatively/utils';
+import { deepMerge, type DeepPartial } from 'reactnatively-utils';
 import { baseTheme, type BaseTheme } from './themes/base';
 
 // createTheme: user-facing factory with full IntelliSense on the override shape.

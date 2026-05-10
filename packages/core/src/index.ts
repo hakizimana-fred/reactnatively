@@ -301,7 +301,7 @@ export {
   shadows,
   motion,
   springs,
-} from '@reactnatively/theme';
+} from 'reactnatively-theme';
 
 export type {
   BaseTheme,
@@ -311,7 +311,7 @@ export type {
   ColorSchemePreference,
   ResolvedColorScheme,
   InferTheme,
-} from '@reactnatively/theme';
+} from 'reactnatively-theme';
 
 export {
   GlassView,
@@ -322,14 +322,14 @@ export {
   IS_PARTIAL_GLASS,
   IS_NO_GLASS,
   useGlassStyle,
-} from '@reactnatively/glass';
+} from 'reactnatively-glass';
 
 export type {
   GlassViewProps,
   FrostPanelProps,
   GlassConfig,
   ResolvedGlassStyle,
-} from '@reactnatively/glass';
+} from 'reactnatively-glass';
 
 export {
   usePressAnimation,
@@ -347,4 +347,4 @@ export {
   TIMING_SLOW,
   TIMING_ENTER,
   TIMING_EXIT,
-} from '@reactnatively/animations';
+} from 'reactnatively-animations';

@@ -7,8 +7,8 @@ import {
   StyleSheet,
   Platform,
 } from 'react-native';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme, useIsDark } from '@reactnatively/theme';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme, useIsDark } from 'reactnatively-theme';
 import type { TableProps, TableColumn } from './Table.types';
 
 // ─── Sort indicator ───────────────────────────────────────────────────────────

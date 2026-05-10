@@ -8,9 +8,9 @@ import {
   type GestureResponderEvent,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
-import { useTheme } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { usePressAnimation } from '@reactnatively/animations';
+import { useTheme } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { usePressAnimation } from 'reactnatively-animations';
 import type { IconButtonProps, IconButtonSize, IconButtonVariant } from './IconButton.types';
 import type { ButtonColor } from '../Button/Button.types';
 

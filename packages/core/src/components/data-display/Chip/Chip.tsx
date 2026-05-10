@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import Animated from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { usePressAnimation } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { usePressAnimation } from 'reactnatively-animations';
 import type { ChipProps, ChipVariant } from './Chip.types';
 
 // ─── Size tables ──────────────────────────────────────────────────────────────

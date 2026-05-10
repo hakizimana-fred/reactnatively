@@ -11,8 +11,8 @@ import {
   type ViewStyle,
   type TextStyle,
 } from 'react-native';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
 import type { DatePickerProps } from './DatePicker.types';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -336,11 +336,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
   } as TextStyle,
   backdrop: {
-    ...StyleSheet.absoluteFill,
+    ...StyleSheet.absoluteFillObject,
     justifyContent: 'flex-end',
   } as ViewStyle,
   backdropFill: {
-    ...StyleSheet.absoluteFill,
+    ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0,0,0,0.4)',
   } as ViewStyle,
   panel: {

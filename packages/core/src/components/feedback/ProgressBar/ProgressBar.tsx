@@ -7,8 +7,8 @@ import {
   type StyleProp,
   type ViewStyle,
 } from 'react-native';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme, useIsDark } from '@reactnatively/theme';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme, useIsDark } from 'reactnatively-theme';
 import type { ProgressBarProps } from './ProgressBar.types';
 
 export const ProgressBar = React.memo<ProgressBarProps>(

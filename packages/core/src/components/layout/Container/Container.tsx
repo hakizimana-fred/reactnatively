@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { View, StyleSheet, type ViewStyle } from 'react-native';
-import { spacing } from '@reactnatively/theme';
-import type { SpacingKey } from '@reactnatively/theme';
+import { spacing } from 'reactnatively-theme';
+import type { SpacingKey } from 'reactnatively-theme';
 import type { ContainerProps, ContainerMaxWidth } from './Container.types';
 
 const MAX_WIDTH_VALUES: Record<ContainerMaxWidth, number> = {

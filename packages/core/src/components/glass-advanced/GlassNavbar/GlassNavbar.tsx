@@ -5,8 +5,8 @@ import Animated, {
   interpolate,
   Extrapolation,
 } from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { useTheme } from '@reactnatively/theme';
+import { GlassView } from 'reactnatively-glass';
+import { useTheme } from 'reactnatively-theme';
 import type { GlassNavbarProps } from './GlassNavbar.types';
 
 const NAVBAR_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     letterSpacing: -0.4,
   },
   border: {
-    ...StyleSheet.absoluteFill,
+    ...StyleSheet.absoluteFillObject,
     top: undefined,
     borderBottomWidth: StyleSheet.hairlineWidth,
   },

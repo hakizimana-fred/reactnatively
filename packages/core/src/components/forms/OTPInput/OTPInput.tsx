@@ -9,9 +9,9 @@ import {
   type TextStyle,
 } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
-import { useTheme, useIsDark } from '@reactnatively/theme';
-import { GlassView } from '@reactnatively/glass';
-import { useEntranceAnimation, SPRING_SNAPPY } from '@reactnatively/animations';
+import { useTheme, useIsDark } from 'reactnatively-theme';
+import { GlassView } from 'reactnatively-glass';
+import { useEntranceAnimation, SPRING_SNAPPY } from 'reactnatively-animations';
 import type { OTPInputProps } from './OTPInput.types';
 
 // ─── Single box ───────────────────────────────────────────────────────────────

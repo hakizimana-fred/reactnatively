@@ -8,8 +8,8 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { palette, spacing, radii, shadows } from '@reactnatively/theme';
-import { Stack, HStack } from '@reactnatively/core';
+import { palette, spacing, radii, shadows } from 'reactnatively';
+import { Stack, HStack } from 'reactnatively';
 
 export default function TokensScreen() {
   const isDark = useColorScheme() === 'dark';

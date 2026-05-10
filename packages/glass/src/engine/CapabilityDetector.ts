@@ -1,4 +1,4 @@
-import { IS_IOS, IS_ANDROID, IS_WEB, getAndroidVersion } from '@reactnatively/utils';
+import { IS_IOS, IS_ANDROID, IS_WEB, getAndroidVersion } from 'reactnatively-utils';
 
 export type GlassCapability = 'full' | 'partial' | 'none';
 

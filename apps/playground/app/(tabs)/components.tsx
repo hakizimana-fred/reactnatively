@@ -16,7 +16,7 @@ import {
   Stack,
   HStack,
   VStack,
-} from '@reactnatively/core';
+} from 'reactnatively';
 
 export default function ComponentsScreen() {
   const isDark = useColorScheme() === 'dark';

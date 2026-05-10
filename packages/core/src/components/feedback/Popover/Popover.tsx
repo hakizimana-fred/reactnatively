@@ -15,9 +15,9 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
-import { GlassView } from '@reactnatively/glass';
-import { useIsDark } from '@reactnatively/theme';
-import { SPRING_SNAPPY, TIMING_EXIT } from '@reactnatively/animations';
+import { GlassView } from 'reactnatively-glass';
+import { useIsDark } from 'reactnatively-theme';
+import { SPRING_SNAPPY, TIMING_EXIT } from 'reactnatively-animations';
 import type { PopoverProps } from './Popover.types';
 import type { TooltipPlacement } from '../Tooltip/Tooltip.types';
 

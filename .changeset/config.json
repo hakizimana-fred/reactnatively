@@ -3,9 +3,9 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [["@reactnatively/*"]],
+  "linked": [["reactnatively-*"]],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["playground", "docs", "storybook"]
+  "ignore": ["playground"]
 }

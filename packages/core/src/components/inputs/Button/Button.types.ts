@@ -1,6 +1,6 @@
 import type { PressableProps, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import type { ReactNode } from 'react';
-import type { GlassElevation, GlassTintVariant } from '@reactnatively/theme';
+import type { GlassElevation, GlassTintVariant } from 'reactnatively-theme';
 
 export type ButtonVariant =
   | 'solid'       // filled background, primary action

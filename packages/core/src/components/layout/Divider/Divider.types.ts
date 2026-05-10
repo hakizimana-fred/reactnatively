@@ -1,5 +1,5 @@
 import type { StyleProp, ViewStyle, TextStyle } from 'react-native';
-import type { SpacingKey } from '@reactnatively/theme';
+import type { SpacingKey } from 'reactnatively-theme';
 
 export interface DividerProps {
   orientation?: 'horizontal' | 'vertical';

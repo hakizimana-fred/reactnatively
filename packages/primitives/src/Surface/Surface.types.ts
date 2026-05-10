@@ -1,7 +1,7 @@
 import type { StyleProp, ViewStyle, ViewProps } from 'react-native';
 import type { ReactNode } from 'react';
-import type { GlassElevation, GlassTintVariant, GlassHighlight } from '@reactnatively/theme';
-import type { RadiiKey } from '@reactnatively/theme';
+import type { GlassElevation, GlassTintVariant, GlassHighlight } from 'reactnatively-theme';
+import type { RadiiKey } from 'reactnatively-theme';
 
 /**
  * Full glass configuration for when fine-grained control is needed.

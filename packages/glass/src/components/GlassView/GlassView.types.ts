@@ -1,6 +1,6 @@
 import type { StyleProp, ViewStyle, AccessibilityRole } from 'react-native';
 import type { ReactNode } from 'react';
-import type { GlassElevation, GlassTintVariant, GlassHighlight } from '@reactnatively/theme';
+import type { GlassElevation, GlassTintVariant, GlassHighlight } from 'reactnatively-theme';
 
 export interface GlassViewProps {
   elevation?:    GlassElevation;
