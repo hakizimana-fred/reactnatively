@@ -16,3 +16,16 @@ export { Slot } from './Slot';
 // ─── GlassText ────────────────────────────────────────────────────────────────
 export { GlassText } from './GlassText';
 export type { GlassTextProps, GlassTextVariant, GlassTextWeight } from './GlassText';
+
+// ─── Accessibility ───────────────────────────────────────────────────────────
+export {
+  AccessibilityProvider,
+  useAccessibilityPolicy,
+  VisuallyHidden,
+} from './AccessibilityProvider';
+export type {
+  AccessibilityProviderProps,
+  AccessibilityPolicy,
+  AccessibilityContextValue,
+  VisuallyHiddenProps,
+} from './AccessibilityProvider';

@@ -8,10 +8,11 @@ import type { GlassViewProps } from '../GlassView/GlassView.types';
 export interface FrostPanelProps extends Omit<GlassViewProps, 'style'> {
   style?: StyleProp<ViewStyle>;
   edges?: ('top' | 'bottom' | 'left' | 'right')[];
+  contentStyle?: StyleProp<ViewStyle>;
 }
 
 export const FrostPanel = React.memo<FrostPanelProps>(
-  ({ style, edges, borderRadius, children, ...glassProps }) => {
+  ({ style, edges, borderRadius, contentStyle, children, ...glassProps }) => {
     // For panels, we typically want sharp edges on some sides
     // e.g., bottom sheet: round top, flat bottom (or vice versa)
     const radiusStyle = edges
@@ -28,6 +29,7 @@ export const FrostPanel = React.memo<FrostPanelProps>(
         elevation={glassProps.elevation ?? 3}
         style={[styles.panel, style]}
         borderRadius={0} // We handle radius manually for panels
+         contentStyle={contentStyle}
         {...glassProps}
       >
         <View style={radiusStyle}>

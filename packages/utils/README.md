@@ -1,22 +1,58 @@
 # reactnatively-utils
 
-Shared utilities and TypeScript helpers for reactnatively.
+Shared utility and type helpers for Reactnatively.
 
-This is an internal package of [reactnatively](https://www.npmjs.com/package/reactnatively). Install the main package instead:
+## Install
+
+Most apps should install the full framework:
 
 ```sh
 npm install reactnatively
 ```
 
----
+Install `reactnatively-utils` directly only when you need shared types or
+utilities without the full component framework.
 
-## What this package does
+Most users should import utilities from `reactnatively`:
 
-Provides type utilities, style helpers, and small pure functions shared across packages in the monorepo. Nothing in here has React Native UI logic — it's all framework-agnostic helpers.
+```tsx
+import {
+  deepMerge,
+  defineVariants,
+  platformSelect,
+  IS_IOS,
+} from 'reactnatively';
+```
 
-Typical contents include:
+Optional subpath:
 
-- **Type helpers** — conditional types, deep partial, branded types used across the public API
-- **Style utilities** — functions for merging styles, resolving responsive values, and converting token names to style values
-- **Platform utilities** — thin wrappers around `Platform.select` and `Platform.OS` checks used consistently across components
-- **Color utilities** — hex-to-rgba conversion, alpha manipulation, and contrast ratio calculation used by the glass engine and theme system
+```tsx
+import { deepMerge, platformSelect } from 'reactnatively/utils';
+```
+
+## Exports
+
+| Export | Purpose |
+|---|---|
+| `deepMerge` | Deep object merge for token/theme objects |
+| `shallowMerge` | Shallow object merge |
+| `defineVariants` | Typed variant resolver |
+| `defineCompoundVariants` | Typed compound variant resolver |
+| `IS_IOS`, `IS_ANDROID`, `IS_WEB`, `IS_NATIVE` | Platform booleans |
+| `getAndroidVersion` | Android API/version helper |
+| `platformSelect` | Small typed platform selector |
+
+## Types
+
+Common type exports include:
+
+- `DeepPartial`
+- `DeepReadonly`
+- `Prettify`
+- `PolymorphicComponentProp`
+- `PolymorphicComponentPropWithRef`
+- `PolymorphicRef`
+- `WithChildren`
+- `WithTestID`
+- `SizeScale`
+- `Orientation`

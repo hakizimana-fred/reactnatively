@@ -50,8 +50,22 @@ reactnatively/
 - `.github/workflows/ci.yml` — Turborepo pipeline: typecheck+build, tests, Changesets release on main
 - Secrets needed: TURBO_TOKEN, TURBO_TEAM (optional remote cache), NPM_TOKEN, GITHUB_TOKEN
 
+## Docs Site (web/)
+
+Next.js site at `reactnatively/web/`. Design direction: **React Native-first, Expo-native, mobile screen-oriented**.
+
+**Why:** Docs must make developers feel "I want my app to look like this" — not like a utility SDK or web framework.
+
+**How to apply (docs):**
+- Code examples should show full screen compositions (ProfileScreen, AuthScreen, HomeScreen) not isolated snippets
+- Use actual component names from the library: `GlassView`, `Avatar`, `Badge`, `Button`, `BottomNavigation`, `TextInput`, `PasswordInput`, `Switch`, `BottomSheet`, etc.
+- `usePressAnimation` API: `{ pressedScale, pressedOpacity, disabled }` — NOT `scaleDown` or `config`
+- `useEntranceAnimation` returns `{ animatedStyle }` and takes `{ variant, delay }`
+- Avoid web-only snippets like `console.log(GLASS_CAPABILITY)`; prefer screen-level JSX with Expo file conventions
+- The web landing page has: phone frame hero, code+visual split component showcase, screen-level code examples in CodeSection
+
 ## Next Up
 
 - Implement remaining components: Input, Select, Checkbox, Switch, Dialog, BottomSheet, Tabs, SegmentedControl, Badge, Chip, etc.
 - Add placeholder assets (icon.png, splash.png) to playground/assets/
-- Set up Storybook or Docusaurus docs
+- Continue expanding docs pages: component API pages for Button, Avatar, Badge, BottomNavigation, etc.

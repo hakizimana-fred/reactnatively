@@ -1,69 +1,83 @@
 # reactnatively-theme
 
-Token engine and theme system for reactnatively.
+Theme, token, and recipe engine for Reactnatively.
 
-This is an internal package of [reactnatively](https://www.npmjs.com/package/reactnatively). Install the main package instead:
+## Install
+
+Most apps should install the full framework:
 
 ```sh
 npm install reactnatively
 ```
 
----
+Install `reactnatively-theme` directly only when building custom theming or
+token tooling without the full component framework.
 
-## What this package does
-
-Provides the design token definitions, `ThemeProvider`, theme hooks, and the `createTheme` factory that powers light/dark mode and custom theming across the entire system.
-
-### ThemeProvider
-
-Wraps the app to make theme context available to all components. Automatically responds to system color scheme changes.
+Most users should import theme APIs from `reactnatively`:
 
 ```tsx
-import { ThemeProvider } from 'reactnatively';
-
-<ThemeProvider>
-  <App />
-</ThemeProvider>
-
-// With a custom theme
-<ThemeProvider theme={createTheme({ colors: { primary: '#6366f1' } })}>
-  <App />
-</ThemeProvider>
+import {
+  ReactnativelyProvider,
+  createTheme,
+  useTheme,
+  materialTokens,
+  createRecipe,
+} from 'reactnatively';
 ```
 
-### Hooks
+Optional subpath:
 
-| Hook | Returns | Use |
-|---|---|---|
-| `useTheme()` | Full theme object (`colors`, `spacing`, `radii`, …) | Access all tokens |
-| `useColorScheme()` | `'light' \| 'dark' \| 'auto'` | Current color scheme |
-| `useIsDark()` | `boolean` | Dark mode shortcut |
-| `useToken(path)` | `any` | Single token by dot-path |
+```tsx
+import { createTheme, glassTokens } from 'reactnatively/theme';
+```
 
-### Design tokens
+## Tokens
 
-| Export | Contents |
+| Export | Purpose |
 |---|---|
-| `spacing` | Scale from `xs` (4) to `xl` (64) |
-| `radii` | `sm` `md` `lg` `xl` `full` |
-| `typography` | `fontFamily`, `fontSize`, `fontWeight`, `lineHeight` |
-| `shadows` | Depth levels 1–5 |
-| `motion` | Duration presets + spring configs |
-| `glassTokens` | Per-elevation blur, tint, and shadow values |
-| `palette` | Full color palette |
-| `baseTheme` | Complete default theme object |
+| `palette` | Raw color palette |
+| `spacing` | Spacing scale |
+| `radii` | Radius scale |
+| `typography` | Type scale |
+| `shadows` | Shadow presets |
+| `motion` | Motion durations and springs |
+| `glassTokens` | Raw glass blur/tint/elevation tokens |
+| `materialTokens` | Semantic material recipes |
+| `stateTokens` | Pressed, hovered, focused, selected, disabled states |
+| `zDepth` | Overlay and stacking levels |
+| `breakpoints` | Responsive breakpoints |
+| `density` | Compact, regular, spacious density tokens |
+| `accessibilityTokens` | Touch target, contrast, font scale, transparency |
+| `hapticTokens` | Haptic intent tokens |
+| `componentTokens` | Component-level token defaults |
 
-### createTheme
+## createTheme
 
-```ts
-import { createTheme } from 'reactnatively';
-
+```tsx
 const theme = createTheme({
   colors: {
     primary: '#6366f1',
-    secondary: '#8b5cf6',
+  },
+});
+
+<ReactnativelyProvider theme={theme}>
+  <App />
+</ReactnativelyProvider>
+```
+
+## Recipes
+
+```tsx
+const resolveButton = createRecipe({
+  material: 'regular',
+  base: { borderRadius: 12 },
+  variants: {
+    primary: { color: 'primary' },
+    subtle: { color: 'neutral' },
+  },
+  defaults: {
+    variant: 'primary',
+    material: 'regular',
   },
 });
 ```
-
-Deep-merges your overrides with the base theme, so you only specify what you want to change.

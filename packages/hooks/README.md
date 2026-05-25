@@ -1,37 +1,58 @@
 # reactnatively-hooks
 
-Shared UI hooks for reactnatively.
+Shared UI hooks for Reactnatively.
 
-This is an internal package of [reactnatively](https://www.npmjs.com/package/reactnatively). Install the main package instead:
+## Install
+
+Most apps should install the full framework:
 
 ```sh
 npm install reactnatively
 ```
 
----
+Install `reactnatively-hooks` directly only when you need the hooks package
+without the full component framework.
 
-## What this package does
+Most users should import hooks from `reactnatively`:
 
-Provides low-level UI hooks used across components in the system — scroll behaviour, safe area utilities, and interaction state helpers.
-
-### useScrollHandler
-
-Returns a scroll handler and derived animated values (scroll position, direction, velocity) for building scroll-aware UIs like collapsing headers and parallax effects.
-
-```ts
-import { useScrollHandler } from 'reactnatively';
-
-const { scrollHandler, scrollY, direction } = useScrollHandler();
-
-// Attach to ScrollView
-<Animated.ScrollView onScroll={scrollHandler} scrollEventThrottle={16}>
-  ...
-</Animated.ScrollView>
+```tsx
+import {
+  useDisclosure,
+  useControllable,
+  useHaptic,
+  useContainerQuery,
+  useScrollHandler,
+} from 'reactnatively';
 ```
 
-| Return value | Type | Description |
-|---|---|---|
-| `scrollHandler` | Reanimated event handler | Attach to `onScroll` |
-| `scrollY` | `SharedValue<number>` | Current scroll offset |
-| `direction` | `SharedValue<'up' \| 'down'>` | Scroll direction |
-| `velocity` | `SharedValue<number>` | Current scroll velocity |
+Optional subpath:
+
+```tsx
+import { useDisclosure, useScrollHandler } from 'reactnatively/hooks';
+```
+
+## Hooks
+
+| Hook | Purpose |
+|---|---|
+| `useControllable` | Controlled/uncontrolled value state |
+| `useDisclosure` | Open/close/toggle state |
+| `useId` | Stable ids |
+| `usePrevious` | Previous value tracking |
+| `useDebounce` | Debounced values |
+| `useThrottle` | Throttled values |
+| `useKeyboard` | Keyboard visibility/height |
+| `useDimensions` | Window dimensions and breakpoint |
+| `useAccessibility` | Accessibility environment state |
+| `useHaptic` | Optional haptic feedback helper |
+| `useContainerQuery` | Container-based responsive state |
+| `useScrollHandler` | Reanimated scroll values |
+
+## Example
+
+```tsx
+const disclosure = useDisclosure();
+
+<Button label="Open" onPress={disclosure.open} />
+<Modal isOpen={disclosure.isOpen} onClose={disclosure.close} />
+```

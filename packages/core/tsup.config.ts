@@ -1,7 +1,15 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ['src/index.ts'],
+  entry: [
+    'src/index.ts',
+    'src/glass.ts',
+    'src/hooks.ts',
+    'src/animations.ts',
+    'src/theme.ts',
+    'src/primitives.ts',
+    'src/utils.ts',
+  ],
   format: ['cjs', 'esm'],
   dts: true,
   sourcemap: true,
@@ -14,7 +22,6 @@ export default defineConfig({
     'react-native',
     'expo-blur',
     'react-native-gesture-handler',
-    'react-native-linear-gradient',
     'react-native-reanimated',
   ],
 });

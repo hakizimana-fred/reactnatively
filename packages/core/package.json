@@ -1,6 +1,6 @@
 {
   "name": "reactnatively",
-  "version": "0.1.0",
+  "version": "4.0.0",
   "description": "Liquid Glass UI system for React Native & Expo — components, animations, theming",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -10,6 +10,36 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
+    },
+    "./glass": {
+      "types": "./dist/glass.d.ts",
+      "import": "./dist/glass.mjs",
+      "require": "./dist/glass.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks.d.ts",
+      "import": "./dist/hooks.mjs",
+      "require": "./dist/hooks.js"
+    },
+    "./animations": {
+      "types": "./dist/animations.d.ts",
+      "import": "./dist/animations.mjs",
+      "require": "./dist/animations.js"
+    },
+    "./theme": {
+      "types": "./dist/theme.d.ts",
+      "import": "./dist/theme.mjs",
+      "require": "./dist/theme.js"
+    },
+    "./primitives": {
+      "types": "./dist/primitives.d.ts",
+      "import": "./dist/primitives.mjs",
+      "require": "./dist/primitives.js"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "import": "./dist/utils.mjs",
+      "require": "./dist/utils.js"
     }
   },
   "sideEffects": false,
@@ -36,13 +66,15 @@
     "react": ">=18.0.0",
     "react-native": ">=0.73.0",
     "react-native-gesture-handler": ">=2.14.0",
-    "react-native-linear-gradient": ">=2.8.0",
     "react-native-reanimated": ">=3.6.0"
   },
   "peerDependenciesMeta": {
-    "expo-blur": { "optional": true },
-    "react-native-linear-gradient": { "optional": true },
-    "react-native-reanimated": { "optional": false }
+    "expo-blur": {
+      "optional": true
+    },
+    "react-native-reanimated": {
+      "optional": false
+    }
   },
   "devDependencies": {
     "@reactnatively/tsconfig": "workspace:*",

@@ -1,49 +1,67 @@
 # reactnatively-primitives
 
-Base rendering primitives for reactnatively.
+Low-level primitives used by Reactnatively components.
 
-This is an internal package of [reactnatively](https://www.npmjs.com/package/reactnatively). Install the main package instead:
+## Install
+
+Most apps should install the full framework:
 
 ```sh
 npm install reactnatively
 ```
 
----
+Install `reactnatively-primitives` directly only when building lower-level UI
+infrastructure without the full component framework.
 
-## What this package does
+Most users should import primitives from `reactnatively`:
 
-Provides the lowest-level interactive and surface primitives that higher-level components are composed from. These handle the glass rendering + gesture layer combination so each component doesn't re-implement it.
+```tsx
+import {
+  Surface,
+  GlassPressable,
+  GlassText,
+  PortalProvider,
+  AccessibilityProvider,
+} from 'reactnatively';
+```
+
+Optional subpath:
+
+```tsx
+import { Surface, GlassPressable } from 'reactnatively/primitives';
+```
+
+## Main Primitives
 
 ### Surface
 
-A glass-aware `View` that automatically applies the correct glass token values based on theme and elevation. Higher-level components like `LiquidCard` and `Modal` are built on `Surface`.
+Glass-aware or solid rendering primitive.
 
 ```tsx
-import { Surface } from 'reactnatively-primitives';
-
-<Surface elevation={2} borderRadius={16}>
+<Surface glass={{ elevation: 2, variant: 'surface' }} borderRadius="lg">
   {children}
 </Surface>
 ```
 
 ### GlassPressable
 
-A pressable that combines gesture handling (via `react-native-gesture-handler`) with a glass surface and a built-in press scale animation. Used as the base for `Button`, `Chip`, `IconButton`, and similar interactive components.
+Interactive surface with shared press animation and optional glass rendering.
 
 ```tsx
-import { GlassPressable } from 'reactnatively-primitives';
-
-<GlassPressable elevation={1} onPress={handlePress}>
-  {children}
+<GlassPressable glass onPress={handlePress}>
+  <GlassText>Press me</GlassText>
 </GlassPressable>
 ```
 
-### GlassText
+### AccessibilityProvider
 
-A `Text` component that automatically picks the correct foreground color for the current glass elevation and color scheme, maintaining readable contrast over glass surfaces.
+Provides shared accessibility defaults such as minimum touch target, font scaling,
+and reduced transparency preference.
 
 ```tsx
-import { GlassText } from 'reactnatively-primitives';
-
-<GlassText elevation={3}>Label on glass</GlassText>
+<AccessibilityProvider policy={{ allowFontScaling: true }}>
+  <App />
+</AccessibilityProvider>
 ```
+
+Most apps get this automatically through `ReactnativelyProvider`.

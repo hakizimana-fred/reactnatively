@@ -1,61 +1,64 @@
-# reactnatively (core)
+# reactnatively
 
-This directory contains the source for the published `reactnatively` npm package — the single entry point for the entire Liquid Glass UI system.
+Source for the public `reactnatively` package.
 
-Install from npm:
+Consumers should normally import everything from this package:
 
-```sh
-npm install reactnatively
+```tsx
+import {
+  ReactnativelyProvider,
+  Button,
+  Card,
+  GlassView,
+  Surface,
+  GlassPressable,
+  useGlassStyle,
+  resolveGlass,
+} from 'reactnatively';
 ```
 
-See the [root README](../../README.md) for the full API reference, component catalogue, and usage examples.
+## Optional Subpaths
 
----
+The package also exposes focused secondary entry points:
+
+```tsx
+import { GlassView } from 'reactnatively/glass';
+import { useDisclosure } from 'reactnatively/hooks';
+import { Fade } from 'reactnatively/animations';
+import { createTheme } from 'reactnatively/theme';
+import { Surface } from 'reactnatively/primitives';
+import { deepMerge } from 'reactnatively/utils';
+```
+
+These subpaths are for power users and docs organization. The primary API is
+still the root `reactnatively` import.
 
 ## Architecture
 
-`reactnatively` is the public-facing package. It imports from several private internal packages in this monorepo and bundles them all into a single output via tsup:
+`reactnatively` re-exports and composes the workspace packages:
 
-| Internal package | Responsibility |
+| Workspace package | Responsibility |
 |---|---|
-| `reactnatively-glass` | GlassView, blur engine, capability detection |
-| `reactnatively-theme` | ThemeProvider, tokens, useTheme hooks |
-| `reactnatively-animations` | Spring/timing presets, animation hooks |
-| `reactnatively-primitives` | Surface, GlassPressable, GlassText |
-| `reactnatively-hooks` | useScrollHandler and other UI hooks |
-| `reactnatively-utils` | Type helpers, style utilities, color utilities |
+| `reactnatively-glass` | Glass renderer and platform policy |
+| `reactnatively-theme` | Tokens, themes, recipe engine |
+| `reactnatively-animations` | Motion presets, hooks, interaction policy |
+| `reactnatively-primitives` | Surface, GlassPressable, portals, accessibility |
+| `reactnatively-hooks` | Shared UI hooks |
+| `reactnatively-utils` | Utility and type helpers |
 
-The internal packages are **not published to npm** — they exist only to keep the monorepo modular during development. Everything a consumer needs ships inside `reactnatively`.
-
----
-
-## Building
+## Build
 
 ```sh
-pnpm build          # build all packages in dependency order via turbo
-pnpm --filter reactnatively build   # build this package only
+pnpm --filter reactnatively typecheck
+pnpm --filter reactnatively build
 ```
 
-Output goes to `dist/`:
+The build emits:
 
-- `dist/index.js` — CommonJS bundle
-- `dist/index.mjs` — ESM bundle
-- `dist/index.d.ts` — TypeScript declarations
-
-## Source structure
-
-```
-src/
-  components/
-    inputs/          # Button, IconButton, FAB
-    forms/           # TextInput, Select, DatePicker, …
-    layout/          # Box, Stack, Grid, Divider, …
-    typography/      # Heading, Text, Caption, …
-    data-display/    # LiquidCard, Avatar, Badge, Chip, …
-    feedback/        # Toast, Alert, Skeleton, Dialog, …
-    navigation/      # Tabs, BottomNavigation, Drawer, …
-    overlays/        # Modal, ActionSheet, CommandPalette, …
-    motion/          # Fade, Scale, Slide, MagneticPressable
-    glass-advanced/  # GlassNavbar, FloatingDock, DynamicIsland, …
-  index.ts           # single export barrel
-```
+- `dist/index.*` for the root API
+- `dist/glass.*`
+- `dist/hooks.*`
+- `dist/animations.*`
+- `dist/theme.*`
+- `dist/primitives.*`
+- `dist/utils.*`

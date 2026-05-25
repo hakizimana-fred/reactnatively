@@ -9,19 +9,26 @@ import type { BlurSurfaceProps } from './BlurSurface.types';
  */
 export const BlurSurface = React.memo<BlurSurfaceProps>(
   ({
-    elevation = 2,
-    variant = 'surface',
-    borderRadius = 16,
-    style,
-    children,
+    elevation = 1,
+  variant = 'surface',
+  borderRadius = 24,
+  style,
+  contentStyle,
+  border,
+  borderWidth,
+  glow = false,
+  children,
   }) => {
     return (
       <GlassView
-        elevation={elevation}
-        variant={variant}
-        borderRadius={borderRadius}
-        style={[styles.surface, style]}
-      >
+       elevation={elevation}
+    variant={variant}
+    borderRadius={borderRadius}
+    style={[styles.surface, style]}
+    contentStyle={contentStyle}
+    border={border}
+    borderWidth={borderWidth}
+   >
         {children}
       </GlassView>
     );

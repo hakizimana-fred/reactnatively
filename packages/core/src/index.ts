@@ -1,4 +1,7 @@
 // ─── Layout ───────────────────────────────────────────────────────────────────
+export { ReactnativelyProvider } from './providers/ReactnativelyProvider';
+export type { ReactnativelyProviderProps } from './providers/ReactnativelyProvider';
+
 export { Box } from './components/layout/Box';
 export type { BoxProps } from './components/layout/Box';
 
@@ -114,9 +117,10 @@ export { TimePicker } from './components/forms/TimePicker';
 export type { TimePickerProps } from './components/forms/TimePicker';
 
 // ─── Data Display ─────────────────────────────────────────────────────────────
-export { LiquidCard } from './components/data-display/Card';
+export { LiquidCard, LiquidCard as Card } from './components/data-display/Card';
 export type {
   LiquidCardProps,
+  LiquidCardProps as CardProps,
   LiquidCardHeaderProps,
   LiquidCardBodyProps,
   LiquidCardFooterProps,
@@ -293,8 +297,19 @@ export {
   useIsDark,
   useToken,
   createTheme,
+  createRecipe,
+  extendRecipe,
   baseTheme,
+  palette,
   glassTokens,
+  materialTokens,
+  stateTokens,
+  zDepth,
+  breakpoints,
+  density,
+  accessibilityTokens,
+  hapticTokens,
+  componentTokens,
   spacing,
   radii,
   typography,
@@ -311,17 +326,28 @@ export type {
   ColorSchemePreference,
   ResolvedColorScheme,
   InferTheme,
+  MaterialRecipe,
+  DensityMode,
+  ComponentRecipe,
+  RecipeState,
+  ResolveRecipeOptions,
+  ResolvedRecipe,
 } from 'reactnatively-theme';
 
 export {
   GlassView,
   FrostPanel,
+  resolveGlass,
   GLASS_CAPABILITY,
   SUPPORTS_BLUR,
   IS_FULL_GLASS,
   IS_PARTIAL_GLASS,
   IS_NO_GLASS,
+  adjustBlurForCapability,
   useGlassStyle,
+  GlassPlatformProvider,
+  useGlassPlatform,
+  useBlurSurfaceBudget,
 } from 'reactnatively-glass';
 
 export type {
@@ -329,6 +355,12 @@ export type {
   FrostPanelProps,
   GlassConfig,
   ResolvedGlassStyle,
+  GlassMaterialPolicy,
+  RenderBudgetPolicy,
+  GlassPlatformProviderProps,
+  GlassQuality,
+  GlassPowerMode,
+  GlassSurfacePriority,
 } from 'reactnatively-glass';
 
 export {
@@ -347,4 +379,103 @@ export {
   TIMING_SLOW,
   TIMING_ENTER,
   TIMING_EXIT,
+  InteractionProvider,
+  useInteraction,
 } from 'reactnatively-animations';
+
+export type {
+  InteractionProviderProps,
+  InteractionPolicy,
+  InteractionContextValue,
+  InteractionIntensity,
+  HapticIntent,
+} from 'reactnatively-animations';
+
+export {
+  GlassPressable,
+  GlassText,
+  Portal,
+  PortalHost,
+  PortalProvider,
+  usePortal,
+  Slot,
+  AccessibilityProvider,
+  useAccessibilityPolicy,
+  VisuallyHidden,
+} from 'reactnatively-primitives';
+
+export type {
+  GlassPressableProps,
+  GlassTextProps,
+  GlassTextVariant,
+  GlassTextWeight,
+  PortalContextValue,
+  PortalEntry,
+  AccessibilityProviderProps,
+  AccessibilityPolicy,
+  AccessibilityContextValue,
+  VisuallyHiddenProps,
+} from 'reactnatively-primitives';
+
+export {
+  useControllable,
+  useDisclosure,
+  useId,
+  usePrevious,
+  useDebounce,
+  useThrottle,
+  useKeyboard,
+  useDimensions,
+  useAccessibility,
+  useHaptic,
+  useContainerQuery,
+  useContainerQueryFull,
+  useScrollHandler,
+} from 'reactnatively-hooks';
+
+export type {
+  UseControllableOptions,
+  UseDisclosureOptions,
+  UseDisclosureReturn,
+  KeyboardState,
+  DimensionsState,
+  Breakpoint,
+  AccessibilityState,
+  UseHapticReturn,
+  HapticImpactStyle,
+  HapticNotificationType,
+  ContainerBreakpoint,
+  ContainerQueryResult,
+  ScrollHandlerResult,
+} from 'reactnatively-hooks';
+
+export {
+  deepMerge,
+  shallowMerge,
+  defineVariants,
+  defineCompoundVariants,
+  IS_IOS,
+  IS_ANDROID,
+  IS_WEB,
+  IS_NATIVE,
+  getAndroidVersion,
+  platformSelect,
+} from 'reactnatively-utils';
+
+export type {
+  DeepPartial,
+  DeepReadonly,
+  ExtractKeys,
+  Prettify,
+  PolymorphicComponentProp,
+  PolymorphicComponentPropWithRef,
+  PolymorphicRef,
+  WithChildren,
+  WithTestID,
+  WithClassName,
+  SizeScale,
+  ColorScheme as UtilityColorScheme,
+  Orientation,
+  Alignment,
+  Justify,
+} from 'reactnatively-utils';

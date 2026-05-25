@@ -5,6 +5,13 @@ export type { ThemeContextValue, ThemeProviderProps, ColorSchemePreference, Reso
 
 export { createTheme, baseTheme } from './createTheme';
 export type { InferTheme } from './createTheme';
+export { createRecipe, extendRecipe } from './createRecipe';
+export type {
+  ComponentRecipe,
+  RecipeState,
+  ResolveRecipeOptions,
+  ResolvedRecipe,
+} from './createRecipe';
 
 export type { BaseTheme, ThemeColors, ThemeColorKey } from './themes/base';
 
@@ -29,3 +36,26 @@ export type { Shadows, ShadowKey } from './tokens/shadows';
 
 export { motion, duration, easing, springs, reducedMotion } from './tokens/motion';
 export type { Motion, SpringConfig } from './tokens/motion';
+
+export {
+  materialTokens,
+  stateTokens,
+  zDepth,
+  breakpoints,
+  density,
+  accessibilityTokens,
+  hapticTokens,
+  componentTokens,
+} from './tokens/materials';
+export type {
+  MaterialTokens,
+  MaterialRecipe,
+  StateTokens,
+  ZDepth,
+  Breakpoints,
+  Density,
+  DensityMode,
+  AccessibilityTokens,
+  HapticTokens,
+  ComponentTokens,
+} from './tokens/materials';

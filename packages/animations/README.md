@@ -1,59 +1,56 @@
 # reactnatively-animations
 
-Animation presets and hooks for reactnatively, built on react-native-reanimated.
+Motion presets, animation hooks, and interaction policy for Reactnatively.
 
-This is an internal package of [reactnatively](https://www.npmjs.com/package/reactnatively). Install the main package instead:
+## Install
+
+Most apps should install the full framework:
 
 ```sh
 npm install reactnatively
 ```
 
----
+Install `reactnatively-animations` directly only when building custom motion
+infrastructure without the full component framework.
 
-## What this package does
+Most users should import from `reactnatively`:
 
-Provides reusable animation hooks, spring/timing presets, and the reduced-motion utilities used by every animated component in the system.
-
-### Hooks
-
-| Hook | Use |
-|---|---|
-| `usePressAnimation()` | Returns `scale` shared value + press handlers for pressable animations |
-| `useEntranceAnimation()` | Fade + translate entrance on mount |
-| `useSpring(value, config)` | Animated value that follows a spring curve |
-| `useReducedMotion()` | Returns `true` when the user has requested reduced motion |
-| `useDuration(base)` | Returns adjusted duration (0 when reduced motion is on) |
-
-### Spring presets
-
-| Constant | Feel | Config |
-|---|---|---|
-| `SPRING_SNAPPY` | Quick, tight | `mass: 1, damping: 26, stiffness: 300` |
-| `SPRING_LIQUID` | Fluid, natural | `mass: 1, damping: 20, stiffness: 200` |
-| `SPRING_REVEAL` | Gentle entrance | `mass: 1, damping: 30, stiffness: 180` |
-| `SPRING_BOUNCE` | Playful overshoot | `mass: 1, damping: 12, stiffness: 250` |
-| `SPRING_PRECISE` | No overshoot | `mass: 1, damping: 40, stiffness: 300` |
-
-### Timing presets
-
-| Constant | Duration |
-|---|---|
-| `TIMING_FAST` | 150ms |
-| `TIMING_NORMAL` | 250ms |
-| `TIMING_SLOW` | 400ms |
-| `TIMING_ENTER` | 300ms |
-| `TIMING_EXIT` | 200ms |
-
-### Reduced motion
-
-All animation hooks respect the system reduced-motion accessibility preference automatically. Use `useReducedMotion()` in custom animations to do the same:
-
-```ts
-import { useReducedMotion, TIMING_NORMAL } from 'reactnatively';
-
-function useMyAnimation() {
-  const reduced = useReducedMotion();
-  const duration = reduced ? 0 : TIMING_NORMAL;
-  // ...
-}
+```tsx
+import {
+  Fade,
+  Scale,
+  usePressAnimation,
+  InteractionProvider,
+  SPRING_LIQUID,
+} from 'reactnatively';
 ```
+
+Optional subpath:
+
+```tsx
+import { usePressAnimation, SPRING_SNAPPY } from 'reactnatively/animations';
+```
+
+## Exports
+
+- Spring presets: `SPRING_SNAPPY`, `SPRING_LIQUID`, `SPRING_REVEAL`, `SPRING_BOUNCE`, `SPRING_PRECISE`
+- Timing presets: `TIMING_FAST`, `TIMING_NORMAL`, `TIMING_SLOW`, `TIMING_ENTER`, `TIMING_EXIT`
+- Hooks: `usePressAnimation`, `useEntranceAnimation`, `useReducedMotion`, `useSpring`, `useDuration`
+- Policy: `InteractionProvider`, `useInteraction`
+- Components from the public package subpath: `Fade`, `Scale`, `Slide`, `BlurTransition`, `MagneticPressable`
+
+## Interaction Policy
+
+```tsx
+<InteractionProvider
+  policy={{
+    intensity: 'standard',
+    enableHaptics: true,
+    defaultSpring: 'snappy',
+  }}
+>
+  <App />
+</InteractionProvider>
+```
+
+Most apps get this automatically through `ReactnativelyProvider`.

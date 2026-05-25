@@ -13,7 +13,6 @@ export default defineConfig({
     'react-native',
     'react-native-reanimated',
     'react-native-gesture-handler',
-    'react-native-linear-gradient',
     'expo-blur',
     'expo-haptics',
     'reactnatively-theme',

@@ -1,0 +1,32 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="core" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(128 128) rotate(90) scale(94)">
+      <stop offset="0" stop-color="#EAF8FF"/>
+      <stop offset="0.36" stop-color="#98D9FF"/>
+      <stop offset="0.68" stop-color="#8EA8FF"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </radialGradient>
+    <linearGradient id="orbit" x1="40" y1="62" x2="220" y2="198" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9BE7FF"/>
+      <stop offset="0.5" stop-color="#9DB7FF"/>
+      <stop offset="1" stop-color="#B69AFF"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.39 0 0 0 0 0.75 0 0 0 0 1 0 0 0 0.72 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="58" fill="#0A0D18"/>
+  <circle cx="128" cy="128" r="74" fill="url(#core)" opacity="0.14"/>
+  <g filter="url(#glow)" stroke="url(#orbit)" stroke-width="6" stroke-linecap="round">
+    <ellipse cx="128" cy="128" rx="92" ry="36" transform="rotate(-18 128 128)" opacity="0.82"/>
+    <ellipse cx="128" cy="128" rx="92" ry="36" transform="rotate(29 128 128)" opacity="0.74"/>
+    <ellipse cx="128" cy="128" rx="92" ry="36" transform="rotate(74 128 128)" opacity="0.68"/>
+  </g>
+  <circle cx="128" cy="128" r="18" fill="url(#core)" stroke="#DFF6FF" stroke-opacity="0.45" stroke-width="2"/>
+  <path d="M91 85C103 73 127 65 151 70" stroke="#F7FDFF" stroke-opacity="0.32" stroke-width="3" stroke-linecap="round"/>
+</svg>

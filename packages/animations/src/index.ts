@@ -5,3 +5,11 @@ export { usePressAnimation } from './hooks/usePressAnimation';
 export type { PressAnimationConfig, PressAnimationResult } from './hooks/usePressAnimation';
 export { useEntranceAnimation } from './hooks/useEntranceAnimation';
 export type { EntranceVariant, EntranceAnimationConfig } from './hooks/useEntranceAnimation';
+export { InteractionProvider, useInteraction } from './InteractionProvider';
+export type {
+  InteractionProviderProps,
+  InteractionPolicy,
+  InteractionContextValue,
+  InteractionIntensity,
+  HapticIntent,
+} from './InteractionProvider';

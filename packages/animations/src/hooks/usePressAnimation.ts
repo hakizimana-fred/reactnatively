@@ -6,7 +6,7 @@ import {
   type AnimatedStyle,
 } from 'react-native-reanimated';
 import type { ViewStyle } from 'react-native';
-import { SPRING_SNAPPY } from '../presets/spring';
+import { useInteraction } from '../InteractionProvider';
 import { useReducedMotion } from './useReducedMotion';
 
 export interface PressAnimationConfig {
@@ -32,27 +32,30 @@ export function usePressAnimation({
   disabled       = false,
 }: PressAnimationConfig = {}): PressAnimationResult {
   const isReduced = useReducedMotion();
+  const interaction = useInteraction();
   const pressed   = useSharedValue(0);
+  const resolvedPress = interaction.resolvePress(pressedScale, pressedOpacity);
+  const springConfig = interaction.resolveSpring('snappy');
 
   const animatedStyle = useAnimatedStyle((): ViewStyle => {
     'worklet';
     if (disabled || isReduced) return {};
     return {
       transform: [
-        { scale: interpolate(pressed.value, [0, 1], [1, pressedScale]) },
+        { scale: interpolate(pressed.value, [0, 1], [1, resolvedPress.scale]) },
       ],
-      opacity: interpolate(pressed.value, [0, 1], [1, pressedOpacity]),
+      opacity: interpolate(pressed.value, [0, 1], [1, resolvedPress.opacity]),
     };
   });
 
   const handlers = {
     onPressIn: () => {
       'worklet';
-      pressed.value = withSpring(1, SPRING_SNAPPY);
+      pressed.value = withSpring(1, springConfig);
     },
     onPressOut: () => {
       'worklet';
-      pressed.value = withSpring(0, SPRING_SNAPPY);
+      pressed.value = withSpring(0, springConfig);
     },
   };
 

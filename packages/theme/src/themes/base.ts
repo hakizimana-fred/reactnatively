@@ -5,6 +5,16 @@ import { radii } from '../tokens/radii';
 import { typography } from '../tokens/typography';
 import { shadows } from '../tokens/shadows';
 import { motion } from '../tokens/motion';
+import {
+  materialTokens,
+  stateTokens,
+  zDepth,
+  breakpoints,
+  density,
+  accessibilityTokens,
+  hapticTokens,
+  componentTokens,
+} from '../tokens/materials';
 
 // Colors are typed as string — NOT as const literal — so dark mode
 // overrides can supply any color value without literal type conflicts.
@@ -94,6 +104,14 @@ export interface BaseTheme {
   typography: typeof typography;
   shadows:    typeof shadows;
   motion:     typeof motion;
+  materials:  typeof materialTokens;
+  states:     typeof stateTokens;
+  zDepth:     typeof zDepth;
+  breakpoints: typeof breakpoints;
+  density:    typeof density;
+  accessibility: typeof accessibilityTokens;
+  haptics:    typeof hapticTokens;
+  components: typeof componentTokens;
 }
 
 export const baseTheme: BaseTheme = {
@@ -104,6 +122,14 @@ export const baseTheme: BaseTheme = {
   typography,
   shadows,
   motion,
+  materials: materialTokens,
+  states: stateTokens,
+  zDepth,
+  breakpoints,
+  density,
+  accessibility: accessibilityTokens,
+  haptics: hapticTokens,
+  components: componentTokens,
 };
 
 export type ThemeColorKey = keyof ThemeColors;
